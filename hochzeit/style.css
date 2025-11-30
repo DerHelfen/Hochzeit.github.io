@@ -68,9 +68,26 @@ html {
   z-index: 0;
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    height: 80vh;
+    position: relative;
+  }
+  
+  .top-section {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: auto;
+    min-height: 120px;
+    padding: 10px 15px 15px 15px;
+  }
+}
+
 .top-section {
   position: relative;
   height: 20vh;
+  min-height: 140px;
   background: #d0d7ce;
   display: flex;
   flex-direction: column;
@@ -87,17 +104,22 @@ html {
   font-family: "Great Vibes", cursive;
   font-weight: 400;
   font-size: 5rem;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
   .top-section h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .top-section h1 {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
+    margin-bottom: 8px;
+    margin-top: 5px;
   }
 }
 
@@ -202,8 +224,14 @@ h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .top-section {
-    padding: 15px 10px 20px 10px;
+  .nav-bar {
+    gap: 12px;
+    margin-top: 5px;
+  }
+
+  .nav-bar a {
+    font-size: 0.95rem;
+    padding-bottom: 1px;
   }
 
   .nav-bar {
