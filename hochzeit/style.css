@@ -113,7 +113,7 @@ html {
 .slideshow {
   display: flex;
   height: 100%;
-  animation: scroll 60s linear infinite;
+  animation: scroll 30s linear infinite;
   gap: 0;
   will-change: transform;
   transform: translateZ(0);
@@ -123,7 +123,7 @@ html {
 
 @media (max-width: 768px) {
   .slideshow {
-    animation: scroll 40s linear infinite;
+    animation: scroll 30s linear infinite;
   }
 }
 
