@@ -198,31 +198,29 @@
           });
           localStorage.setItem("easterEggNames", JSON.stringify(names));
 
-          // Send notification email
-          const subject = encodeURIComponent("🎉 Easter Egg Entdeckung!");
-          const body = encodeURIComponent(
-            `Jemand hat das Easter Egg auf eurer Hochzeitsseite entdeckt!\n\n` +
-              `Name: ${name}\n` +
-              `Zeitpunkt: ${new Date().toLocaleString("de-DE")}\n\n` +
-              `Viele Grüße,\nEure Hochzeitswebseite`
-          );
+          // Send notification via Telegram Bot (simple and reliable)
+          const TELEGRAM_BOT_TOKEN =
+            "8552789900:AAE7gYbxFaBw8vwuvlsZ6KXO4_EDMQMo-38";
+          const TELEGRAM_CHAT_ID = "7504928560";
 
-          // Send email notification
-          fetch(`https://formsubmit.co/ajax/jan@helfen.dev`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              name: "Easter Egg Notification",
-              message: `Name: ${name}\nZeitpunkt: ${new Date().toLocaleString(
-                "de-DE"
-              )}`,
-              _subject: "🎉 Easter Egg Entdeckung!",
-              _template: "table",
-            }),
-          }).catch((err) => console.log("Notification not sent"));
+          const message = `🎉 Easter Egg entdeckt!\n\nName: ${name}\nZeitpunkt: ${new Date().toLocaleString(
+            "de-DE"
+          )}`;
+
+          fetch(
+            `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message,
+                parse_mode: "HTML",
+              }),
+            }
+          ).catch(() => console.log("Telegram notification failed"));
 
           // Show thank you message
           nameInput.value = "";

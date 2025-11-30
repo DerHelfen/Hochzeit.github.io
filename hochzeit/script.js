@@ -96,15 +96,15 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("schedule-item-visible");
+      entry.target.classList.add("timeline-item-visible");
     }
   });
 }, observerOptions);
 
-// Observe all schedule items when page loads
+// Observe all timeline items when page loads
 window.addEventListener("DOMContentLoaded", () => {
-  const scheduleItems = document.querySelectorAll(".schedule-item");
-  scheduleItems.forEach((item) => {
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  timelineItems.forEach((item) => {
     observer.observe(item);
   });
 });

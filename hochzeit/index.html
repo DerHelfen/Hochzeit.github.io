@@ -221,30 +221,136 @@
         <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
           Freut euch auf einen unvergesslichen Tag voller schöner Momente!
         </p>
-        <div class="schedule-list">
-          <div class="schedule-item">
-            <span class="schedule-time">14:00</span>
-            <span class="schedule-title">Ankunft & Sektempfang</span>
+        <div class="timeline">
+          <!-- Item 1: Left -->
+          <div class="timeline-item timeline-left timeline-first">
+            <div class="timeline-content">
+              <span class="schedule-time">13:45</span>
+              <span class="schedule-title">Ankunft</span>
+            </div>
+            <div class="timeline-center">
+              <img
+                src="bilder/ablauf/ankunft-removebg-preview.png"
+                alt="Ankunft"
+                class="timeline-icon"
+                loading="lazy"
+              />
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-spacer"></div>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">15:00</span>
-            <span class="schedule-title">Freie Trauung</span>
+
+          <!-- Item 2: Right -->
+          <div class="timeline-item timeline-right">
+            <div class="timeline-spacer"></div>
+            <div class="timeline-center">
+              <div class="timeline-line"></div>
+              <img
+                src="bilder/ablauf/trauung-removebg-preview.png"
+                alt="Freie Trauung"
+                class="timeline-icon"
+                loading="lazy"
+              />
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <span class="schedule-time">14:00</span>
+              <span class="schedule-title">Freie Trauung</span>
+            </div>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">15:30</span>
-            <span class="schedule-title">Kaffee & Kuchen</span>
+
+          <!-- Item 3: Left -->
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="schedule-time">15:00</span>
+              <span class="schedule-title">Sektempfang</span>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-line"></div>
+              <img
+                src="bilder/ablauf/sektempfang-removebg-preview.png"
+                alt="Sektempfang"
+                class="timeline-icon"
+                loading="lazy"
+              />
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-spacer"></div>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">18:30</span>
-            <span class="schedule-title">Essen</span>
+
+          <!-- Item 4: Right -->
+          <div class="timeline-item timeline-right">
+            <div class="timeline-spacer"></div>
+            <div class="timeline-center">
+              <div class="timeline-line"></div>
+              <img
+                src="bilder/ablauf/kaffeekuchen-removebg-preview.png"
+                alt="Kaffee & Kuchen"
+                class="timeline-icon"
+                loading="lazy"
+              />
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <span class="schedule-time">15:30</span>
+              <span class="schedule-title">Kaffee & Kuchen</span>
+            </div>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">20:00</span>
-            <span class="schedule-title">Eröffnungstanz</span>
+
+          <!-- Item 5: Left -->
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="schedule-time">18:30</span>
+              <span class="schedule-title">Essen</span>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-line"></div>
+              <img
+                src="bilder/ablauf/essen-removebg-preview.png"
+                alt="Essen"
+                class="timeline-icon"
+                loading="lazy"
+              />
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-spacer"></div>
           </div>
-          <div class="schedule-item">
-            <span class="schedule-time">bis 4:00</span>
-            <span class="schedule-title">Party</span>
+
+          <!-- Item 6: Right -->
+          <div class="timeline-item timeline-right">
+            <div class="timeline-spacer"></div>
+            <div class="timeline-center">
+              <div class="timeline-line"></div>
+              <img
+                src="bilder/ablauf/tanz-removebg-preview.png"
+                alt="Eröffnungstanz"
+                class="timeline-icon"
+                loading="lazy"
+              />
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <span class="schedule-time">20:30</span>
+              <span class="schedule-title">Eröffnungstanz</span>
+            </div>
+          </div>
+
+          <!-- Item 7: Left -->
+          <div class="timeline-item timeline-left timeline-last">
+            <div class="timeline-content">
+              <span class="schedule-time">bis 4:00</span>
+              <span class="schedule-title">Party</span>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-line"></div>
+              <img
+                src="bilder/ablauf/party-removebg-preview.png"
+                alt="Party"
+                class="timeline-icon"
+                loading="lazy"
+              />
+            </div>
+            <div class="timeline-spacer"></div>
           </div>
         </div>
       </div>
@@ -270,8 +376,10 @@
           <div class="faq-item">
             <div class="faq-question">Welche Musik wird gespielt?</div>
             <div class="faq-answer">
-              Teilt uns gerne eure Musikwünsche mit – am besten als
-              Spotify-Playlist oder Link.
+              Unser DJ wird für gute Stimmung sorgen! Damit nicht nur unsere
+              Lieblingslieder laufen, würden wir uns freuen, eure Musikwünsche
+              als Playlist an ihn weiterzugeben – am besten als Spotify-Playlist
+              oder Link.
             </div>
           </div>
           <div class="faq-item">
@@ -279,8 +387,10 @@
               Kann ich meinen Partner / meine Partnerin mitbringen?
             </div>
             <div class="faq-answer">
-              Selbstverständlich! Alle Partner und Partnerinnen sind herzlich
-              eingeladen.
+              Selbstverständlich sind alle Partner und Partnerinnen herzlich
+              willkommen! Falls ihr bis zur Hochzeit jemanden kennenlernt, gebt
+              uns einfach kurz Bescheid – wir freuen uns, auch euren neuen
+              Partner oder eure neue Partnerin bei uns begrüßen zu dürfen.
             </div>
           </div>
           <div class="faq-item">
@@ -293,7 +403,9 @@
           <div class="faq-item">
             <div class="faq-question">Gibt es einen Dresscode?</div>
             <div class="faq-answer">
-              Wir wünschen uns elegante Kleidung, gerne mit Pastellakzenten.
+              Wir würden uns freuen, wenn ihr euch für unseren besonderen Tag
+              schick kleidet. Pastelfarbene Akzente sind herzlich willkommen und
+              passen wunderbar zu unserer Frühlingshochzeit!
             </div>
           </div>
           <div class="faq-item">
@@ -301,8 +413,8 @@
               Gibt es vegetarische und vegane Optionen beim Essen?
             </div>
             <div class="faq-answer">
-              Ja, selbstverständlich! Wir berücksichtigen alle
-              Ernährungsvorlieben.
+              Wir haben vegetarische Optionen für euch. Bitte teilt uns bei der
+              Rückmeldung mit, falls wir eine vegane Option organisieren sollen.
             </div>
           </div>
           <div class="faq-item">
@@ -336,7 +448,7 @@
 
           <div class="contact-group">
             <h4 class="contact-subheading">Unsere Trauzeugen</h4>
-            <p class="contact-name">Jennifer</p>
+            <p class="contact-name">Jennifer Hüttemann</p>
             <p class="contact-name">Erik Eichhorst</p>
             <p class="contact-name">Benedikt Eisenbach</p>
           </div>
@@ -351,6 +463,13 @@
               <a href="tel:+4915759614689">0157 596 146 89</a>
             </p>
           </div>
+        </div>
+
+        <div class="easter-egg-hint">
+          <p>
+            🔍 Psst... Irgendwo auf dieser Seite versteckt sich ein kleines
+            Geheimnis...
+          </p>
         </div>
       </div>
     </section>
