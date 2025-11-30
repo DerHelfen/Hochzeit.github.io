@@ -4,274 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unsere Hochzeit – Jan & Joana</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Georgia", serif;
-        overflow-x: hidden;
-        overflow-y: auto;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Hintergrund */
-      .bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-        background: #1a1a1a;
-      }
-
-      .slideshow {
-        display: flex;
-        height: 100%;
-        animation: scroll 60s linear infinite;
-        gap: 0;
-        will-change: transform;
-      }
-
-      .slideshow img {
-        width: auto;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-        filter: brightness(60%);
-        display: block;
-        flex-shrink: 0;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-      }
-
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-
-      .hero-section {
-        position: relative;
-        height: 80vh;
-      }
-
-      .top-section {
-        position: relative;
-        height: 20vh;
-        background: #d0d7ce;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 20px 30px 20px;
-      }
-
-      .top-section h1 {
-        color: #2d5016;
-        text-shadow: none;
-        margin-bottom: 15px;
-        margin-top: 20px;
-      }
-
-      .top-section .nav-bar a {
-        color: #2d5016;
-        text-shadow: none;
-      }
-
-      .info-section {
-        background: #d0d7ce;
-        padding: 80px 20px;
-        color: #2d5016;
-        min-height: 100vh;
-        position: relative;
-      }
-
-      .info-content {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .content {
-        text-align: center;
-        color: white;
-        padding: 20px;
-      }
-
-      .nav-bar {
-        margin-top: 0;
-        display: flex;
-        gap: 30px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .nav-bar a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-family: "Tangerine", "Lucida Calligraphy", "Edwardian Script ITC",
-          cursive;
-        font-style: italic;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        transition: transform 0.2s;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 2px;
-      }
-
-      .top-section .nav-bar a {
-        border-bottom: 1px solid #2d5016;
-      }
-
-      .nav-bar a:hover {
-        transform: scale(1.1);
-      }
-
-      .bottom-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        font-size: 4rem;
-        font-family: "Tangerine", "Lucida Calligraphy", "Edwardian Script ITC",
-          cursive;
-        font-style: italic;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        font-weight: 400;
-        white-space: nowrap;
-        max-width: 90%;
-      }
-
-      h1 {
-        font-size: 5rem;
-        margin-bottom: 10px;
-        font-family: "Tangerine", "Lucida Calligraphy", "Edwardian Script ITC",
-          cursive;
-        font-style: italic;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        font-weight: 400;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-        font-family: "Tangerine", "Lucida Calligraphy", "Edwardian Script ITC",
-          cursive;
-        font-style: italic;
-        font-weight: 400;
-      }
-
-      #countdown {
-        font-size: 2rem;
-        font-weight: 400;
-        margin-top: 20px;
-        font-family: "Tangerine", "Lucida Calligraphy", "Edwardian Script ITC",
-          cursive;
-        font-style: italic;
-      }
-
-      /* Mobile Responsiveness */
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 3rem;
-        }
-
-        .top-section h1 {
-          margin-bottom: 10px;
-          margin-top: 10px;
-        }
-
-        .top-section {
-          padding: 15px 10px 20px 10px;
-        }
-
-        .nav-bar {
-          gap: 15px;
-        }
-
-        .nav-bar a {
-          font-size: 1rem;
-        }
-
-        .bottom-text {
-          font-size: 2.5rem;
-          padding: 0 10px;
-          white-space: normal;
-          line-height: 1.2;
-        }
-
-        .slideshow img {
-          image-rendering: auto;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-        }
-
-        h2 {
-          font-size: 1.2rem;
-        }
-
-        #countdown {
-          font-size: 1.5rem;
-        }
-
-        .info-content h2 {
-          font-size: 2rem !important;
-        }
-
-        .info-content p {
-          font-size: 1rem !important;
-        }
-
-        .info-section {
-          padding: 60px 15px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        .nav-bar {
-          gap: 10px;
-        }
-
-        .nav-bar a {
-          font-size: 0.9rem;
-        }
-
-        .bottom-text {
-          font-size: 2rem;
-          white-space: normal;
-          line-height: 1.2;
-        }
-
-        #countdown {
-          font-size: 1.2rem;
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section class="top-section">
       <div class="content">
         <h1>Jan & Joana</h1>
         <nav class="nav-bar">
-          <a href="#anreise">Anreise</a>
+          <a href="#datum">Datum</a>
+          <a href="#location">Location</a>
           <a href="#ablauf">Ablauf</a>
           <a href="#faq">FAQ</a>
           <a href="#kontakt">Kontakt</a>
@@ -282,79 +29,198 @@
     <section class="hero-section">
       <div class="bg">
         <div class="slideshow">
-          <img src="bilder/foto1.jpg" alt="Photo 1" />
-          <img src="bilder/foto2.jpg" alt="Photo 2" />
-          <img src="bilder/foto3.jpg" alt="Photo 3" />
-          <img src="bilder/foto4.jpg" alt="Photo 4" />
-          <img src="bilder/foto1.jpg" alt="Photo 1" />
-          <img src="bilder/foto2.jpg" alt="Photo 2" />
-          <img src="bilder/foto3.jpg" alt="Photo 3" />
-          <img src="bilder/foto4.jpg" alt="Photo 4" />
+          <img src="bilder/foto1.jpg" alt="Photo 1" loading="eager" decoding="async" />
+          <img src="bilder/foto2.jpg" alt="Photo 2" loading="eager" decoding="async" />
+          <img src="bilder/foto3.jpg" alt="Photo 3" loading="eager" decoding="async" />
+          <img src="bilder/foto4.jpg" alt="Photo 4" loading="eager" decoding="async" />
+          <img src="bilder/foto1.jpg" alt="Photo 1" loading="lazy" decoding="async" />
+          <img src="bilder/foto2.jpg" alt="Photo 2" loading="lazy" decoding="async" />
+          <img src="bilder/foto3.jpg" alt="Photo 3" loading="lazy" decoding="async" />
+          <img src="bilder/foto4.jpg" alt="Photo 4" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="bottom-text">WE'RE GETTING MARRIED!</div>
     </section>
 
-    <section class="info-section" id="anreise">
+    <section class="info-section" id="datum">
       <div class="info-content">
-        <h2>Wir heiraten am 16. Mai 2026</h2>
-        <div id="countdown" style="color: #2d5016; text-shadow: none">
+        <h2 style="font-size: 2.5rem; margin-bottom: 30px">
+          Wir heiraten am 16. Mai 2026
+        </h2>
+        <div
+          id="countdown"
+          style="color: #2d5016; text-shadow: none; font-size: 2rem"
+        >
           Lade Countdown…
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section" id="location">
+      <div class="info-content">
+        <h2 style="margin-bottom: 10px">Bleckmanns Hof</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px">
+          Wesseler Str. 6, 59368 Werne
+        </p>
+        <p style="font-size: 1rem; font-style: italic; margin-bottom: 40px">
+          Trauung und Hochzeitsfeier finden am Bleckmanns Hof statt.
+        </p>
+
+        <div class="location-container">
+          <div class="location-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.8!2d7.6308!3d51.6668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b90bf7e0fe6339%3A0x4634454122830055!2sBleckmanns%20Hof!5e0!3m2!1sde!2sde!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+
+          <div class="location-gallery">
+            <button
+              class="gallery-arrow gallery-arrow-left"
+              onclick="changeImage(-1)"
+            >
+              &#10094;
+            </button>
+            <img
+              id="galleryImage"
+              src="bilder/bleckmannshof_1.jpg"
+              alt="Bleckmanns Hof"
+              loading="lazy"
+              decoding="async"
+            />
+            <button
+              class="gallery-arrow gallery-arrow-right"
+              onclick="changeImage(1)"
+            >
+              &#10095;
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="info-section" id="ablauf">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 30px">Ablauf</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8">
-          Informationen zum Ablauf des Tages.
-        </p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px">Ablauf</h2>
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <span class="schedule-time">14:00</span>
+            <span class="schedule-title">Ankunft & Sektempfang</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">15:00</span>
+            <span class="schedule-title">Freie Trauung</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">15:30</span>
+            <span class="schedule-title">Kaffee & Kuchen</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">18:30</span>
+            <span class="schedule-title">Essen</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">20:00</span>
+            <span class="schedule-title">Eröffnungstanz</span>
+          </div>
+          <div class="schedule-item">
+            <span class="schedule-time">bis 4:00</span>
+            <span class="schedule-title">Party</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="info-section" id="faq">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 30px">FAQ</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8">
-          Häufig gestellte Fragen.
-        </p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px">FAQ</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">Geschenke?</div>
+            <div class="faq-answer">
+              Über einen kleinen Betrag zum Start unseres gemeinsamen Lebens
+              würden wir uns am meisten freuen!
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Welche Musik läuft?</div>
+            <div class="faq-answer">
+              Teilt uns gerne eure Musikwünsche mit, am besten als Spotify Liste
+              oder Link.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Kann ich meinen Partner mitbringen?</div>
+            <div class="faq-answer">
+              Unbedingt, alle Partner sind ebenfalls eingeladen!
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Kann ich mein Kind mitbringen?</div>
+            <div class="faq-answer">Klar, für Spiele wird gesorgt.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Dresscode</div>
+            <div class="faq-answer">Elegant, gerne mit Pastelakzenten.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Wird es veganes und vegetarisches Essen geben?
+            </div>
+            <div class="faq-answer">Ja, an alle Vorlieben ist gedacht.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Gibt es Übernachtungsmöglichkeiten?</div>
+            <div class="faq-answer">
+              Bleckmanns Hof bietet ebenfalls eine kleine Pension, in welcher
+              wir auf Wunsch gerne Zimmer für euch reservieren. Kosten ca. 120€
+              für 2 Personen inkl. Frühstück. Gebt uns diesbezüglich bitte
+              frühzeitig Bescheid!
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="info-section" id="kontakt">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 30px">Kontakt</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8">Kontaktinformationen.</p>
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px">Kontakt</h2>
+
+        <div class="contact-section">
+          <h3 class="contact-heading">Ansprechpartner für Fragen</h3>
+
+          <div class="contact-group">
+            <h4 class="contact-subheading">Wir</h4>
+            <p class="contact-name">Joana Leipzig</p>
+            <p class="contact-name">Jan Helfen</p>
+          </div>
+
+          <div class="contact-group">
+            <h4 class="contact-subheading">Unsere Trauzeugen</h4>
+            <p class="contact-name">Jennifer</p>
+            <p class="contact-name">Erik Eichhorst</p>
+            <p class="contact-name">Benedikt Eisenbach</p>
+          </div>
+
+          <div class="rsvp-section">
+            <p class="rsvp-text">
+              Bitte um Antwort bis <strong>1. April 2026</strong>
+            </p>
+            <p class="contact-details">
+              <a href="mailto:jan@helfen.dev">jan@helfen.dev</a> oder
+              <a href="tel:+4915759614689">0157 596 146 89</a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <script>
-      // Datum der Hochzeit anpassen:
-      const weddingDate = new Date("2026-05-16T14:00:00");
-
-      function updateCountdown() {
-        const now = new Date();
-        const diff = weddingDate - now;
-
-        if (diff <= 0) {
-          document.getElementById("countdown").innerHTML =
-            "Heute ist unser großer Tag! 💍";
-          return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById(
-          "countdown"
-        ).innerHTML = `${days} Tage · ${hours} Std · ${minutes} Min · ${seconds} Sek`;
-      }
-
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
