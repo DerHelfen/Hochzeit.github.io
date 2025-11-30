@@ -34,6 +34,12 @@ html {
   will-change: transform;
 }
 
+@media (max-width: 768px) {
+  .slideshow {
+    animation: scroll 40s linear infinite;
+  }
+}
+
 .slideshow img {
   width: auto;
   height: 100%;
@@ -81,6 +87,18 @@ html {
   font-family: "Great Vibes", cursive;
   font-weight: 400;
   font-size: 5rem;
+}
+
+@media (max-width: 768px) {
+  .top-section h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-section h1 {
+    font-size: 2.8rem;
+  }
 }
 
 .top-section .nav-bar a {
@@ -184,15 +202,6 @@ h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  .top-section h1 {
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-
   .top-section {
     padding: 15px 10px 20px 10px;
   }
@@ -240,10 +249,6 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
   .nav-bar {
     gap: 10px;
   }
