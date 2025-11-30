@@ -3,9 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Feiert mit uns unsere Hochzeit am 16. Mai 2026 am Bleckmanns Hof in Werne. Jan & Joana laden euch herzlich zu ihrer Trauung und Feier ein."
+    />
+    <meta
+      name="keywords"
+      content="Hochzeit, Jan Helfen, Joana Leipzig, Bleckmanns Hof, Werne, 16. Mai 2026"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://derhelfen.github.io/Hochzeit.github.io/"
+    />
+    <meta property="og:title" content="Unsere Hochzeit – Jan & Joana" />
+    <meta
+      property="og:description"
+      content="Feiert mit uns am 16. Mai 2026 am Bleckmanns Hof in Werne. Wir freuen uns auf euch!"
+    />
+    <meta
+      property="og:image"
+      content="https://derhelfen.github.io/Hochzeit.github.io/bilder/foto1.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://derhelfen.github.io/Hochzeit.github.io/"
+    />
+    <meta property="twitter:title" content="Unsere Hochzeit – Jan & Joana" />
+    <meta
+      property="twitter:description"
+      content="Feiert mit uns am 16. Mai 2026 am Bleckmanns Hof in Werne. Wir freuen uns auf euch!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://derhelfen.github.io/Hochzeit.github.io/bilder/foto1.jpg"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💍</text></svg>"
+    />
+
     <title>Unsere Hochzeit – Jan & Joana</title>
+
+    <!-- Preconnect to external domains for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="preload" href="bilder/foto1.jpg" as="image" />
+    <link rel="preload" href="bilder/foto2.jpg" as="image" />
+
+    <!-- Load fonts with font-display swap for better performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
@@ -13,6 +71,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Loading Spinner -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="spinner">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <p class="loading-text">Jan & Joana</p>
+      </div>
+    </div>
+
     <section class="top-section">
       <div class="content">
         <h1>Jan & Joana</h1>
@@ -98,12 +166,14 @@
 
     <section class="info-section" id="location">
       <div class="info-content">
+        <h2 style="font-size: 2.5rem; margin-bottom: 30px">Location</h2>
         <h2 style="margin-bottom: 10px">Bleckmanns Hof</h2>
         <p style="font-size: 1.2rem; margin-bottom: 30px">
           Wesseler Str. 6, 59368 Werne
         </p>
         <p style="font-size: 1rem; font-style: italic; margin-bottom: 40px">
-          Trauung und Hochzeitsfeier finden am Bleckmanns Hof statt.
+          Sowohl die Trauung als auch die Hochzeitsfeier finden am Bleckmanns
+          Hof statt.
         </p>
 
         <div class="location-container">
@@ -147,7 +217,10 @@
 
     <section class="info-section" id="ablauf">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 50px">Ablauf</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px">Ablauf des Tages</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
+          Freut euch auf einen unvergesslichen Tag voller schöner Momente!
+        </p>
         <div class="schedule-list">
           <div class="schedule-item">
             <span class="schedule-time">14:00</span>
@@ -179,49 +252,68 @@
 
     <section class="info-section" id="faq">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 50px">FAQ</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px">
+          Häufig gestellte Fragen
+        </h2>
+        <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
+          Hier findet ihr Antworten auf die wichtigsten Fragen zu unserem großen
+          Tag.
+        </p>
         <div class="faq-container">
           <div class="faq-item">
-            <div class="faq-question">Geschenke?</div>
+            <div class="faq-question">Was können wir euch schenken?</div>
             <div class="faq-answer">
-              Über einen kleinen Betrag zum Start unseres gemeinsamen Lebens
-              würden wir uns am meisten freuen!
+              Über einen kleinen Beitrag zum Start in unser gemeinsames Leben
+              würden wir uns sehr freuen!
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Welche Musik läuft?</div>
+            <div class="faq-question">Welche Musik wird gespielt?</div>
             <div class="faq-answer">
-              Teilt uns gerne eure Musikwünsche mit, am besten als Spotify Liste
-              oder Link.
+              Teilt uns gerne eure Musikwünsche mit – am besten als
+              Spotify-Playlist oder Link.
             </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Kann ich meinen Partner mitbringen?</div>
-            <div class="faq-answer">
-              Unbedingt, alle Partner sind ebenfalls eingeladen!
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Kann ich mein Kind mitbringen?</div>
-            <div class="faq-answer">Klar, für Spiele wird gesorgt.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Dresscode</div>
-            <div class="faq-answer">Elegant, gerne mit Pastelakzenten.</div>
           </div>
           <div class="faq-item">
             <div class="faq-question">
-              Wird es veganes und vegetarisches Essen geben?
+              Kann ich meinen Partner / meine Partnerin mitbringen?
             </div>
-            <div class="faq-answer">Ja, an alle Vorlieben ist gedacht.</div>
+            <div class="faq-answer">
+              Selbstverständlich! Alle Partner und Partnerinnen sind herzlich
+              eingeladen.
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Gibt es Übernachtungsmöglichkeiten?</div>
+            <div class="faq-question">Kann ich meine Kinder mitbringen?</div>
             <div class="faq-answer">
-              Bleckmanns Hof bietet ebenfalls eine kleine Pension, in welcher
-              wir auf Wunsch gerne Zimmer für euch reservieren. Kosten ca. 120€
-              für 2 Personen inkl. Frühstück. Gebt uns diesbezüglich bitte
-              frühzeitig Bescheid!
+              Natürlich! Wir freuen uns über eure Kinder und sorgen für Spiele
+              und Beschäftigung.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Gibt es einen Dresscode?</div>
+            <div class="faq-answer">
+              Wir wünschen uns elegante Kleidung, gerne mit Pastellakzenten.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Gibt es vegetarische und vegane Optionen beim Essen?
+            </div>
+            <div class="faq-answer">
+              Ja, selbstverständlich! Wir berücksichtigen alle
+              Ernährungsvorlieben.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Gibt es Übernachtungsmöglichkeiten vor Ort?
+            </div>
+            <div class="faq-answer">
+              Der Bleckmanns Hof verfügt über eine kleine Pension, in der wir
+              gerne Zimmer für euch reservieren können. Die Kosten betragen ca.
+              120€ für zwei Personen inklusive Frühstück. Bitte gebt uns
+              frühzeitig Bescheid, wenn ihr Interesse habt!
             </div>
           </div>
         </div>
@@ -230,13 +322,14 @@
 
     <section class="info-section" id="kontakt">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 50px">Kontakt</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px">Kontakt</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
+          Bei Fragen stehen wir und unsere Trauzeugen euch gerne zur Verfügung!
+        </p>
 
         <div class="contact-section">
-          <h3 class="contact-heading">Ansprechpartner für Fragen</h3>
-
           <div class="contact-group">
-            <h4 class="contact-subheading">Wir</h4>
+            <h4 class="contact-subheading">Brautpaar</h4>
             <p class="contact-name">Joana Leipzig</p>
             <p class="contact-name">Jan Helfen</p>
           </div>
@@ -250,7 +343,8 @@
 
           <div class="rsvp-section">
             <p class="rsvp-text">
-              Bitte um Antwort bis <strong>1. April 2026</strong>
+              Bitte gebt uns bis zum <strong>1. April 2026</strong> Bescheid, ob
+              ihr dabei sein könnt.
             </p>
             <p class="contact-details">
               <a href="mailto:jan@helfen.dev">jan@helfen.dev</a> oder
@@ -261,6 +355,6 @@
       </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

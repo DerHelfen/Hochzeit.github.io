@@ -24,6 +24,48 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
+// Loading Screen Management
+window.addEventListener("load", function () {
+  const loadingScreen = document.getElementById("loading-screen");
+  const images = document.querySelectorAll(".slideshow img[loading='eager']");
+  let loadedImages = 0;
+
+  // Function to check if all images are loaded
+  function checkAllImagesLoaded() {
+    loadedImages++;
+    if (loadedImages >= images.length) {
+      // Add a small delay for smoother transition
+      setTimeout(() => {
+        loadingScreen.classList.add("fade-out");
+        // Remove from DOM after animation
+        setTimeout(() => {
+          loadingScreen.remove();
+        }, 500);
+      }, 300);
+    }
+  }
+
+  // Add load event listeners to eager-loaded images
+  images.forEach((img) => {
+    if (img.complete) {
+      checkAllImagesLoaded();
+    } else {
+      img.addEventListener("load", checkAllImagesLoaded);
+      img.addEventListener("error", checkAllImagesLoaded); // Handle errors gracefully
+    }
+  });
+
+  // Fallback: hide loading screen after 5 seconds regardless
+  setTimeout(() => {
+    if (!loadingScreen.classList.contains("fade-out")) {
+      loadingScreen.classList.add("fade-out");
+      setTimeout(() => {
+        loadingScreen.remove();
+      }, 500);
+    }
+  }, 5000);
+});
+
 // Image Gallery Navigation
 const galleryImages = [
   "bilder/bleckmannshof_1.jpg",
