@@ -108,3 +108,47 @@ window.addEventListener("DOMContentLoaded", () => {
     observer.observe(item);
   });
 });
+
+// Scroll to Top Button
+const scrollToTopBtn = document.getElementById("scrollToTop");
+
+// Show button when scrolling down
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+  }
+});
+
+// Scroll to top when button is clicked
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+// Easter Egg Trigger
+let easterEggClicks = 0;
+const easterEggTrigger = document.getElementById("easterEggTrigger");
+
+if (easterEggTrigger) {
+  easterEggTrigger.addEventListener("click", () => {
+    easterEggClicks++;
+
+    // Add a subtle animation on click
+    easterEggTrigger.style.transform = "scale(1.2)";
+    setTimeout(() => {
+      easterEggTrigger.style.transform = "scale(1)";
+    }, 200);
+
+    // After 5 clicks, redirect to Easter egg page
+    if (easterEggClicks === 5) {
+      window.location.href = "easteregg.html";
+    }
+  });
+
+  // Add transition for smooth animation
+  easterEggTrigger.style.transition = "transform 0.2s ease";
+}

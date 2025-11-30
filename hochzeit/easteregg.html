@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easter Egg! 🎉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background: linear-gradient(135deg, #d0d7ce 0%, #a8b5a0 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .easter-egg-container {
+        background: white;
+        padding: 50px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: 3rem;
+        color: #2d5016;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .message {
+        font-size: 1.3rem;
+        color: #333;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .emoji {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        display: block;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .input-group {
+        margin-top: 30px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-family: "Playfair Display", serif;
+        border: 2px solid #d0d7ce;
+        border-radius: 10px;
+        outline: none;
+        transition: border-color 0.3s;
+        text-align: center;
+      }
+
+      input[type="text"]:focus {
+        border-color: #2d5016;
+      }
+
+      input[type="text"]::placeholder {
+        color: #999;
+      }
+
+      .submit-btn {
+        margin-top: 20px;
+        padding: 12px 40px;
+        font-size: 1.1rem;
+        font-family: "Playfair Display", serif;
+        background-color: #2d5016;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: #1f3910;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(45, 80, 22, 0.3);
+      }
+
+      .back-link {
+        margin-top: 30px;
+        display: inline-block;
+        color: #2d5016;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: opacity 0.3s;
+      }
+
+      .back-link:hover {
+        opacity: 0.7;
+      }
+
+      .thank-you {
+        display: none;
+        font-size: 1.2rem;
+        color: #2d5016;
+        margin-top: 20px;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @media (max-width: 480px) {
+        .easter-egg-container {
+          padding: 30px 20px;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .message {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="easter-egg-container">
+      <span class="emoji">🎉</span>
+      <h1>Easter Egg!</h1>
+      <p class="message">Lass deinen Namen da</p>
+
+      <div class="input-group">
+        <input
+          type="text"
+          id="nameInput"
+          placeholder="Dein Name..."
+          maxlength="50"
+        />
+        <button class="submit-btn" onclick="submitName()">Absenden</button>
+      </div>
+
+      <p class="thank-you" id="thankYou">✨ Vielen Dank! ✨</p>
+
+      <a href="index.html" class="back-link">← Zurück zur Hochzeitsseite</a>
+    </div>
+
+    <script>
+      function submitName() {
+        const nameInput = document.getElementById("nameInput");
+        const thankYou = document.getElementById("thankYou");
+        const name = nameInput.value.trim();
+
+        if (name) {
+          // Store name in localStorage (you could also send to a backend)
+          const names = JSON.parse(
+            localStorage.getItem("easterEggNames") || "[]"
+          );
+          names.push({
+            name: name,
+            timestamp: new Date().toISOString(),
+          });
+          localStorage.setItem("easterEggNames", JSON.stringify(names));
+
+          // Send notification email
+          const subject = encodeURIComponent("🎉 Easter Egg Entdeckung!");
+          const body = encodeURIComponent(
+            `Jemand hat das Easter Egg auf eurer Hochzeitsseite entdeckt!\n\n` +
+              `Name: ${name}\n` +
+              `Zeitpunkt: ${new Date().toLocaleString("de-DE")}\n\n` +
+              `Viele Grüße,\nEure Hochzeitswebseite`
+          );
+
+          // Send email notification
+          fetch(`https://formsubmit.co/ajax/jan@helfen.dev`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              name: "Easter Egg Notification",
+              message: `Name: ${name}\nZeitpunkt: ${new Date().toLocaleString(
+                "de-DE"
+              )}`,
+              _subject: "🎉 Easter Egg Entdeckung!",
+              _template: "table",
+            }),
+          }).catch((err) => console.log("Notification not sent"));
+
+          // Show thank you message
+          nameInput.value = "";
+          nameInput.style.display = "none";
+          document.querySelector(".submit-btn").style.display = "none";
+          thankYou.style.display = "block";
+
+          // Optional: redirect back after a few seconds
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 2000);
+        }
+      }
+
+      // Allow Enter key to submit
+      document
+        .getElementById("nameInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            submitName();
+          }
+        });
+    </script>
+  </body>
+</html>

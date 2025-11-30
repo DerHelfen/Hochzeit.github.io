@@ -83,7 +83,9 @@
 
     <section class="top-section">
       <div class="content">
-        <h1>Jan & Joana</h1>
+        <h1>
+          Jan <span id="easterEggTrigger" style="cursor: default">&</span> Joana
+        </h1>
         <nav class="nav-bar">
           <a href="#datum">Datum</a>
           <a href="#location">Location</a>
@@ -152,9 +154,7 @@
 
     <section class="info-section" id="datum">
       <div class="info-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 30px">
-          Wir heiraten am 16. Mai 2026
-        </h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 30px">16. Mai 2026</h2>
         <div
           id="countdown"
           style="color: #2d5016; text-shadow: none; font-size: 2rem"
@@ -354,6 +354,24 @@
         </div>
       </div>
     </section>
+
+    <!-- Scroll to Top Button -->
+    <button
+      id="scrollToTop"
+      class="scroll-to-top"
+      aria-label="Zurück nach oben"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
 
     <script src="script.js" defer></script>
   </body>
