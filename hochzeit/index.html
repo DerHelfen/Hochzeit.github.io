@@ -16,33 +16,18 @@
         overflow: hidden;
       }
 
-      /* Hintergrund-Slideshow */
+      /* Hintergrund */
       .bg {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        background-image: url("bilder/foto1.jpg");
         background-size: cover;
         background-position: center;
-        animation: slideshow 20s infinite;
         z-index: -1;
         filter: brightness(60%);
-      }
-
-      @keyframes slideshow {
-        0% {
-          background-image: url("bilder/foto1.jpg");
-        }
-        33% {
-          background-image: url("bilder/foto2.jpg");
-        }
-        66% {
-          background-image: url("bilder/foto3.jpg");
-        }
-        100% {
-          background-image: url("bilder/foto1.jpg");
-        }
       }
 
       .content {
@@ -77,14 +62,14 @@
 
     <div class="content">
       <h1>Jan & Joana</h1>
-      <h2>Wir heiraten am 16. Mai 2025</h2>
+      <h2>Wir heiraten am 16. Mai 2026</h2>
 
       <div id="countdown">Lade Countdown…</div>
     </div>
 
     <script>
       // Datum der Hochzeit anpassen:
-      const weddingDate = new Date("2025-05-16T14:00:00");
+      const weddingDate = new Date("2026-05-16T14:00:00");
 
       function updateCountdown() {
         const now = new Date();
