@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/* Force light mode colors regardless of system preference */
+html {
+  color-scheme: light only;
+}
+
 /* Music Toggle Button */
 .music-toggle {
   position: fixed;
