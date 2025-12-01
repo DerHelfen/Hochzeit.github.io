@@ -76,9 +76,10 @@ window.addEventListener("load", function () {
 
 // Image Gallery Navigation
 const galleryImages = [
-  "bilder/bleckmannshof_1.jpg",
-  "bilder/bleckmannshof_2.jpg",
-  "bilder/bleckmannshof_3.jpg",
+  "bilder/bleckmannshof/bleckmannshof_1.jpg",
+  "bilder/bleckmannshof/bleckmannshof_2.jpg",
+  "bilder/bleckmannshof/bleckmannshof_3.jpg",
+  "bilder/bleckmannshof/bleckmannshof_4.jpg",
 ];
 let currentImageIndex = 0;
 
