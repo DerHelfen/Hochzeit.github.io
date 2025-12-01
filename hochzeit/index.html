@@ -25,7 +25,7 @@
     />
     <meta
       property="og:image"
-      content="https://derhelfen.github.io/Hochzeit.github.io/bilder/foto1.jpg"
+      content="https://derhelfen.github.io/Hochzeit.github.io/bilder/wir/foto1.jpg"
     />
 
     <!-- Twitter -->
@@ -41,7 +41,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://derhelfen.github.io/Hochzeit.github.io/bilder/foto1.jpg"
+      content="https://derhelfen.github.io/Hochzeit.github.io/bilder/wir/foto1.jpg"
     />
 
     <!-- Favicon -->
@@ -60,12 +60,12 @@
 
     <!-- Preload critical resources -->
     <link rel="preload" href="style.css" as="style" />
-    <link rel="preload" href="bilder/foto1.jpg" as="image" />
-    <link rel="preload" href="bilder/foto2.jpg" as="image" />
+    <link rel="preload" href="bilder/wir/foto1.jpg" as="image" />
+    <link rel="preload" href="bilder/wir/foto2.jpg" as="image" />
 
     <!-- Load fonts with font-display swap for better performance -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -81,11 +81,24 @@
       </div>
     </div>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+      <source src="ITry.webm" type="audio/webm" />
+      Your browser does not support the audio element.
+    </audio>
+    <button
+      id="musicToggle"
+      class="music-toggle"
+      aria-label="Toggle background music"
+    >
+      <span class="music-icon"></span>
+    </button>
+
     <section class="top-section">
       <div class="content">
         <h1>
           Joana
-          <span id="easterEggTrigger" style="cursor: default">&</span> Jan
+          <span id="easterEggTrigger" style="cursor: pointer">&</span> Jan
         </h1>
         <nav class="nav-bar">
           <a href="#datum">Datum</a>
@@ -101,49 +114,49 @@
       <div class="bg">
         <div class="slideshow">
           <img
-            src="bilder/foto1.jpg"
+            src="bilder/wir/foto1.jpg"
             alt="Photo 1"
             loading="eager"
             decoding="async"
           />
           <img
-            src="bilder/foto2.jpg"
+            src="bilder/wir/foto2.jpg"
             alt="Photo 2"
             loading="eager"
             decoding="async"
           />
           <img
-            src="bilder/foto3.jpg"
+            src="bilder/wir/foto3.jpg"
             alt="Photo 3"
             loading="eager"
             decoding="async"
           />
           <img
-            src="bilder/foto4.jpg"
+            src="bilder/wir/foto4.jpg"
             alt="Photo 4"
             loading="eager"
             decoding="async"
           />
           <img
-            src="bilder/foto1.jpg"
+            src="bilder/wir/foto1.jpg"
             alt="Photo 1"
             loading="lazy"
             decoding="async"
           />
           <img
-            src="bilder/foto2.jpg"
+            src="bilder/wir/foto2.jpg"
             alt="Photo 2"
             loading="lazy"
             decoding="async"
           />
           <img
-            src="bilder/foto3.jpg"
+            src="bilder/wir/foto3.jpg"
             alt="Photo 3"
             loading="lazy"
             decoding="async"
           />
           <img
-            src="bilder/foto4.jpg"
+            src="bilder/wir/foto4.jpg"
             alt="Photo 4"
             loading="lazy"
             decoding="async"
@@ -156,11 +169,23 @@
     <section class="info-section" id="datum">
       <div class="info-content">
         <h2 style="font-size: 2.5rem; margin-bottom: 30px">16. Mai 2026</h2>
-        <div
-          id="countdown"
-          style="color: #2d5016; text-shadow: none; font-size: 2rem"
-        >
-          Lade Countdown…
+        <div id="countdown" class="countdown-container">
+          <div class="countdown-box">
+            <div class="countdown-number" id="days">00</div>
+            <div class="countdown-label">TAGE</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-label">STUNDEN</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-label">MINUTEN</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-label">SEKUNDEN</div>
+          </div>
         </div>
       </div>
     </section>
@@ -200,7 +225,7 @@
             </button>
             <img
               id="galleryImage"
-              src="bilder/bleckmannshof_1.jpg"
+              src="bilder/bleckmannshof/bleckmannshof_1.jpg"
               alt="Bleckmanns Hof"
               loading="lazy"
               decoding="async"
@@ -469,7 +494,7 @@
         <div class="easter-egg-hint">
           <p>
             🔍 Psst... Irgendwo auf dieser Seite versteckt sich ein kleines
-            Geheimnis...
+            Geheimnis... Tipp: &&&
           </p>
         </div>
       </div>

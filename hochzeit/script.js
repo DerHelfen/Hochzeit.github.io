@@ -7,7 +7,7 @@ function updateCountdown() {
 
   if (diff <= 0) {
     document.getElementById("countdown").innerHTML =
-      "Heute ist unser großer Tag! 💍";
+      "<div style='font-size: 2rem; color: #2d5016;'>Heute ist unser großer Tag! 💍</div>";
     return;
   }
 
@@ -16,9 +16,17 @@ function updateCountdown() {
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
 
-  document.getElementById(
-    "countdown"
-  ).innerHTML = `${days} Tage · ${hours} Std · ${minutes} Min · ${seconds} Sek`;
+  // Update individual countdown elements
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(
+    2,
+    "0"
+  );
+  document.getElementById("seconds").textContent = String(seconds).padStart(
+    2,
+    "0"
+  );
 }
 
 setInterval(updateCountdown, 1000);
@@ -143,8 +151,8 @@ if (easterEggTrigger) {
       easterEggTrigger.style.transform = "scale(1)";
     }, 200);
 
-    // After 5 clicks, redirect to Easter egg page
-    if (easterEggClicks === 5) {
+    // After 3 clicks, redirect to Easter egg page
+    if (easterEggClicks === 3) {
       window.location.href = "easteregg.html";
     }
   });
@@ -152,3 +160,41 @@ if (easterEggTrigger) {
   // Add transition for smooth animation
   easterEggTrigger.style.transition = "transform 0.2s ease";
 }
+
+// Background Music Control
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+let isPlaying = false;
+
+// Try to autoplay when page loads (after user interaction)
+window.addEventListener("load", () => {
+  // Attempt to play after a short delay
+  setTimeout(() => {
+    bgMusic
+      .play()
+      .then(() => {
+        isPlaying = true;
+        musicToggle.classList.add("playing");
+      })
+      .catch(() => {
+        // Autoplay was prevented, user needs to click
+        isPlaying = false;
+        musicToggle.classList.remove("playing");
+      });
+  }, 500);
+});
+
+// Toggle music on button click
+musicToggle.addEventListener("click", () => {
+  if (isPlaying) {
+    bgMusic.pause();
+    musicToggle.classList.remove("playing");
+  } else {
+    bgMusic.play();
+    musicToggle.classList.add("playing");
+  }
+  isPlaying = !isPlaying;
+});
+
+// Set initial volume to a pleasant level
+bgMusic.volume = 0.3;

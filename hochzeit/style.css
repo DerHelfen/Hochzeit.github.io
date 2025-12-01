@@ -4,6 +4,44 @@
   box-sizing: border-box;
 }
 
+/* Music Toggle Button */
+.music-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #2d5016;
+  border: 3px solid #d0d7ce;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.music-toggle:hover {
+  background: #5a7a3c;
+  transform: scale(1.1);
+}
+
+.music-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.music-toggle.playing .music-icon::after {
+  content: "🔊";
+}
+
+.music-toggle:not(.playing) .music-icon::after {
+  content: "🔇";
+}
+
 /* Loading Screen */
 .loading-screen {
   position: fixed;
@@ -238,6 +276,42 @@ html {
   text-align: center;
 }
 
+/* Countdown Styles */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  background: #2d5016;
+  border-radius: 8px;
+  padding: 20px 30px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+}
+
 .content {
   text-align: center;
   color: white;
@@ -315,6 +389,38 @@ h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .music-toggle {
+    bottom: 75px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .music-icon {
+    font-size: 24px;
+  }
+
+  .countdown-container {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .countdown-box {
+    padding: 15px 20px;
+    min-width: 150px;
+    width: 80%;
+    max-width: 250px;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.75rem;
+  }
+
   .nav-bar {
     gap: 12px;
     margin-top: 5px;
