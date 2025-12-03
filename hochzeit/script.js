@@ -7,7 +7,7 @@ function updateCountdown() {
 
   if (diff <= 0) {
     document.getElementById("countdown").innerHTML =
-      "<div style='font-size: 2rem; color: #2d5016;'>Heute ist unser großer Tag! 💍</div>";
+      "<div style='font-size: 2rem; color: var(--accent-primary);'>Heute ist unser großer Tag! 💍</div>";
     return;
   }
 

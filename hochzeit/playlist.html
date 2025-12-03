@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <title>Musikwünsche - Jan & Joana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎵</text></svg>"
+    />
+    <link rel="stylesheet" href="playlist.css" />
+  </head>
+  <body>
+    <div class="playlist-page-container">
+      <a href="index.html" class="back-link">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Zurück zur Hauptseite
+      </a>
+
+      <div class="page-header">
+        <h1>Musikwünsche</h1>
+        <p>
+          Teile uns deine Lieblingssongs mit, damit unser DJ für die richtige
+          Stimmung sorgen kann!
+        </p>
+      </div>
+
+      <div class="playlist-card">
+        <form id="playlistForm">
+          <div class="spotify-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+              />
+            </svg>
+            Spotify Links & Playlists willkommen!
+          </div>
+
+          <div class="form-group">
+            <label for="name" class="form-label">Dein Name *</label>
+            <input
+              type="text"
+              id="name"
+              required
+              class="form-input"
+              placeholder="Wie heißt du?"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="songInput" class="form-label"
+              >Song oder Playlist hinzufügen</label
+            >
+            <p class="form-hint">
+              Füge einen Spotify-Link ein oder schreibe "Künstler - Songtitel"
+            </p>
+            <input
+              type="text"
+              id="songInput"
+              class="form-input"
+              placeholder="z.B. https://open.spotify.com/track/... oder Ed Sheeran - Perfect"
+            />
+            <button type="button" class="add-song-btn" onclick="addSong()">
+              <span>+</span> Song hinzufügen
+            </button>
+          </div>
+
+          <div class="song-list" id="songList">
+            <div class="song-list-header">
+              <span class="song-list-title">Deine Songwünsche</span>
+              <span class="song-count" id="songCount">0 Songs</span>
+            </div>
+            <div id="songItems">
+              <div class="empty-state" id="emptyState">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg>
+                <p>Noch keine Songs hinzugefügt</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Nachricht (optional)</label>
+            <textarea
+              id="message"
+              class="form-textarea"
+              placeholder="z.B. 'Das ist unser Hochzeitstanz-Song!' oder 'Bitte spielt das zum Mitternachtssnack!'"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="playlist-submit-btn" id="submitBtn">
+            <span class="btn-text">🎵 Musikwünsche senden</span>
+            <span class="btn-loading" style="display: none"
+              >Wird gesendet...</span
+            >
+          </button>
+        </form>
+
+        <div id="playlistSuccess" class="playlist-success">
+          <span class="success-icon">🎶</span>
+          <h3>Vielen Dank!</h3>
+          <p>
+            Deine Musikwünsche wurden an unseren DJ weitergeleitet. Wir freuen
+            uns darauf, mit dir zu deinen Songs zu tanzen!
+          </p>
+          <div class="success-buttons">
+            <button class="reset-btn" onclick="resetForm()">
+              Weitere Songs senden
+            </button>
+            <a href="index.html" class="home-btn">Zurück zur Hauptseite</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="playlist.js"></script>
+  </body>
+</html>
