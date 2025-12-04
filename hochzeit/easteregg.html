@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="easteregg.css" />
   </head>
   <body>
-    <div class="easter-egg-container">
-      <span class="emoji">🎉</span>
+    <div class="easter-egg-container" id="easterEggContainer">
+      <span class="emoji" id="secretTrigger" title="🤫">🎉</span>
       <h1>Easter Egg!</h1>
       <p class="message">Lass deinen Namen da</p>
 
@@ -31,6 +31,76 @@
       <p class="thank-you" id="thankYou">✨ Vielen Dank! ✨</p>
 
       <a href="index.html" class="back-link">← Zurück zur Hochzeitsseite</a>
+    </div>
+
+    <!-- Hidden Easter Easter Egg Game -->
+    <div class="game-container" id="gameContainer">
+      <!-- Name Entry Screen -->
+      <div class="game-name-entry" id="gameNameEntry">
+        <h2>💒 Hochzeitslauf 💒</h2>
+        <p class="game-name-prompt">Wie heißt du?</p>
+        <input
+          type="text"
+          id="playerNameInput"
+          placeholder="Dein Name..."
+          maxlength="30"
+        />
+        <button class="game-start-btn" onclick="setPlayerName()">
+          Spielen!
+        </button>
+        <button class="back-to-egg-btn" onclick="hideGame()">← Zurück</button>
+      </div>
+
+      <!-- Game Screen -->
+      <div class="game-screen" id="gameScreen" style="display: none">
+        <div class="game-header">
+          <h2>💒 Hochzeitslauf 💒</h2>
+          <p class="game-player-name">
+            Spieler: <span id="currentPlayerName"></span>
+          </p>
+          <p class="game-instruction">
+            Drücke LEERTASTE oder tippe um zu springen!
+          </p>
+          <div class="game-score">Score: <span id="score">0</span></div>
+          <div class="game-highscore">
+            Highscore: <span id="highscore">0</span>
+          </div>
+        </div>
+
+        <div class="game-canvas-wrapper">
+          <canvas id="gameCanvas" width="600" height="250"></canvas>
+          <div class="game-overlay" id="gameOverlay">
+            <div class="game-start-text" id="gameStartText">
+              <span class="game-emoji">💍</span>
+              <p>Tippe oder drücke LEERTASTE zum Starten</p>
+            </div>
+            <div class="game-over-text" id="gameOverText" style="display: none">
+              <span class="game-emoji">💔</span>
+              <p>Game Over!</p>
+              <p class="final-score">Score: <span id="finalScore">0</span></p>
+              <button
+                class="submit-score-btn"
+                id="submitScoreBtn"
+                onclick="submitHighscore()"
+              >
+                🏆 Highscore einreichen
+              </button>
+              <p
+                class="score-submitted"
+                id="scoreSubmitted"
+                style="display: none"
+              >
+                ✨ Eingesendet! ✨
+              </p>
+              <p class="retry-text">
+                Tippe oder drücke LEERTASTE zum Neustarten
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <button class="back-to-egg-btn" onclick="hideGame()">← Zurück</button>
+      </div>
     </div>
 
     <script src="easteregg.js"></script>

@@ -23,6 +23,10 @@
   --text-light: #333;
   --text-muted: #666;
   --text-placeholder: #999;
+
+  /* Shadows & Overlays */
+  --shadow-accent: rgba(45, 52, 54, 0.25);
+  --shadow-accent-hover: rgba(45, 52, 54, 0.35);
 }
 
 /* Reset */
@@ -124,19 +128,45 @@ input[type="text"]::placeholder {
   margin-top: 20px;
   padding: 12px 40px;
   font-size: 1.1rem;
-  font-family: "Playfair Display", serif;
-  background-color: var(--accent-primary);
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-primary-light) 100%
+  );
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow-accent);
+}
+
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
 }
 
 .submit-btn:hover {
-  background-color: var(--accent-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(45, 80, 22, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--shadow-accent-hover);
 }
 
 .back-link {
@@ -171,5 +201,309 @@ input[type="text"]::placeholder {
 
   .message {
     font-size: 1.1rem;
+  }
+}
+
+/* ==========================================================================
+   Easter Easter Egg - Hidden Game Styles
+   ========================================================================== */
+
+.emoji {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.emoji:hover {
+  transform: scale(1.2);
+  animation: none;
+}
+
+.emoji:active {
+  transform: scale(0.9);
+}
+
+/* Game Container - Hidden by default */
+.game-container {
+  display: none;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 680px;
+  width: 100%;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.game-container.active {
+  display: block;
+}
+
+.easter-egg-container.hidden {
+  display: none;
+}
+
+.game-header h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 10px;
+}
+
+.game-instruction {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.game-score,
+.game-highscore {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+  margin: 0 15px 15px;
+  font-weight: 600;
+}
+
+.game-canvas-wrapper {
+  position: relative;
+  display: inline-block;
+  border: 3px solid var(--accent-primary);
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #fdf6e3 0%, #faf3e0 100%);
+}
+
+#gameCanvas {
+  display: block;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  transition: opacity 0.3s ease;
+}
+
+.game-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-start-text,
+.game-over-text {
+  text-align: center;
+}
+
+.game-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 10px;
+  animation: bounce 2s infinite;
+}
+
+.game-start-text p,
+.game-over-text p {
+  color: var(--accent-primary);
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.final-score {
+  font-size: 1.3rem !important;
+  font-weight: 700;
+  margin: 10px 0 !important;
+}
+
+.retry-text {
+  font-size: 0.9rem !important;
+  color: var(--text-muted) !important;
+}
+
+/* Name Entry Screen */
+.game-name-entry {
+  padding: 20px;
+}
+
+.game-name-entry h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+}
+
+.game-name-prompt {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+#playerNameInput {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  font-family: "Playfair Display", serif;
+  border: 2px solid var(--bg-primary);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#playerNameInput:focus {
+  border-color: var(--accent-primary);
+}
+
+.game-start-btn,
+.submit-score-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-primary-light) 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow-accent);
+  margin: 10px 5px;
+}
+
+.game-start-btn::before,
+.submit-score-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.game-start-btn:hover::before,
+.submit-score-btn:hover::before {
+  left: 100%;
+}
+
+.game-start-btn:hover,
+.submit-score-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--shadow-accent-hover);
+}
+
+.submit-score-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-score-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 20px var(--shadow-accent);
+}
+
+.score-submitted {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.game-player-name {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.game-player-name span {
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.back-to-egg-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary) 0%,
+    var(--accent-primary-light) 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow-accent);
+}
+
+.back-to-egg-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.back-to-egg-btn:hover::before {
+  left: 100%;
+}
+
+.back-to-egg-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--shadow-accent-hover);
+}
+
+/* Game responsive styles */
+@media (max-width: 680px) {
+  .game-container {
+    padding: 20px 15px;
+  }
+
+  .game-header h2 {
+    font-size: 2rem;
+  }
+
+  .game-canvas-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  #gameCanvas {
+    max-width: 100%;
+    height: auto;
   }
 }
