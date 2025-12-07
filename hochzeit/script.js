@@ -76,10 +76,10 @@ window.addEventListener("load", function () {
 
 // Image Gallery Navigation
 const galleryImages = [
-  "bilder/bleckmannshof/bleckmannshof_1.jpg",
-  "bilder/bleckmannshof/bleckmannshof_2.jpg",
-  "bilder/bleckmannshof/bleckmannshof_3.jpg",
-  "bilder/bleckmannshof/bleckmannshof_4.jpg",
+  "assets/bilder/bleckmannshof/bleckmannshof_1.jpg",
+  "assets/bilder/bleckmannshof/bleckmannshof_2.jpg",
+  "assets/bilder/bleckmannshof/bleckmannshof_3.jpg",
+  "assets/bilder/bleckmannshof/bleckmannshof_4.jpg",
 ];
 let currentImageIndex = 0;
 
@@ -154,7 +154,7 @@ if (easterEggTrigger) {
 
     // After 3 clicks, redirect to Easter egg page
     if (easterEggClicks === 3) {
-      window.location.href = "easteregg.html";
+      window.location.href = "easteregg/easteregg.html";
     }
   });
 

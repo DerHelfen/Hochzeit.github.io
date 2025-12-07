@@ -42,7 +42,7 @@ function submitName() {
 
     // Optional: redirect back after a few seconds
     setTimeout(() => {
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     }, 2000);
   }
 }
@@ -162,16 +162,19 @@ function submitHighscore() {
     mode: "no-cors",
     body: formData,
   })
-    .then((response) => {
-      console.log("Highscore submitted, response:", response);
-      submitBtn.style.display = "none";
-      submittedMsg.style.display = "block";
-    })
+    // .then((response) => {
+    //   console.log("Highscore submitted, response:", response);
+    //   submitBtn.style.display = "none";
+    //   submittedMsg.style.display = "block";
+    // })
     .catch((error) => {
       console.error("Highscore submission failed:", error);
       submitBtn.textContent = "❌ Fehler - Nochmal?";
       submitBtn.disabled = false;
     });
+
+  submitBtn.style.display = "none";
+  submittedMsg.style.display = "block";
 }
 
 /**
