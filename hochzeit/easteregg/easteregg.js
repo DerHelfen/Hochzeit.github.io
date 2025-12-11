@@ -75,12 +75,12 @@ const player = {
   velocityY: 0,
   jumping: false,
   emoji: "👰",
+  groundY: 180, // Will be updated dynamically
 };
 
 // Game physics
 const gravity = 0.6;
 const jumpForce = -12;
-const groundY = 180;
 
 // Obstacles
 let obstacles = [];
@@ -121,6 +121,10 @@ function setPlayerName() {
   document.getElementById("currentPlayerName").textContent = name;
   document.getElementById("gameNameEntry").style.display = "none";
   document.getElementById("gameScreen").style.display = "block";
+
+  // Fetch latest champion info
+  fetchChampion();
+
   initGame();
 }
 
@@ -141,12 +145,6 @@ function hideGame() {
  */
 function submitHighscore() {
   const finalScore = Math.floor(score / 10);
-  const submitBtn = document.getElementById("submitScoreBtn");
-  const submittedMsg = document.getElementById("scoreSubmitted");
-
-  // Disable button to prevent double submission
-  submitBtn.disabled = true;
-  submitBtn.textContent = "⏳ Wird gesendet...";
 
   // Debug log
   console.log("Submitting highscore:", { name: playerName, score: finalScore });
@@ -162,19 +160,46 @@ function submitHighscore() {
     mode: "no-cors",
     body: formData,
   })
-    // .then((response) => {
-    //   console.log("Highscore submitted, response:", response);
-    //   submitBtn.style.display = "none";
-    //   submittedMsg.style.display = "block";
-    // })
+    .then((response) => {
+      console.log("Highscore submitted, response:", response);
+    })
     .catch((error) => {
       console.error("Highscore submission failed:", error);
-      submitBtn.textContent = "❌ Fehler - Nochmal?";
-      submitBtn.disabled = false;
     });
 
-  submitBtn.style.display = "none";
-  submittedMsg.style.display = "block";
+  // Refresh champion data after submission (delay to allow server processing)
+  setTimeout(() => {
+    console.log("Refreshing champion data after score submission...");
+    fetchChampion();
+  }, 2000); // 2 second delay to ensure server has processed the new score
+}
+
+/**
+ * Fetch current champion from server
+ */
+function fetchChampion() {
+  console.log("Fetching champion from:", WEBHOOK_URL + "?action=champion");
+
+  fetch(WEBHOOK_URL + "?action=champion")
+    .then((response) => {
+      console.log("Champion response status:", response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Champion data received:", data);
+      document.getElementById("championName").textContent =
+        data.name || "Noch kein Champion";
+      document.getElementById("championScore").textContent = data.score || "0";
+    })
+    .catch((error) => {
+      console.error("Failed to fetch champion:", error);
+      document.getElementById("championName").textContent =
+        "Verbindung fehlgeschlagen";
+      document.getElementById("championScore").textContent = "0";
+    });
 }
 
 /**
@@ -184,9 +209,24 @@ function initGame() {
   canvas = document.getElementById("gameCanvas");
   ctx = canvas.getContext("2d");
 
+  // Set canvas size based on container
+  const container = canvas.parentElement;
+  const containerWidth = container.clientWidth;
+  const containerHeight = container.clientHeight;
+
+  canvas.width = containerWidth;
+  canvas.height = containerHeight;
+
+  // Update game physics for new canvas size
+  player.y = canvas.height - 100;
+  player.groundY = canvas.height - 100;
+
   // Update highscore display
   document.getElementById("highscore").textContent = highScore;
   document.getElementById("score").textContent = "0";
+
+  // Fetch current champion
+  fetchChampion();
 
   // Reset game state
   resetGame();
@@ -207,7 +247,7 @@ function resetGame() {
   obstacleInterval = 70;
   gameSpeed = 6;
 
-  player.y = groundY;
+  player.y = player.groundY;
   player.velocityY = 0;
   player.jumping = false;
 
@@ -215,18 +255,6 @@ function resetGame() {
   document.getElementById("gameStartText").style.display = "block";
   document.getElementById("gameOverText").style.display = "none";
   document.getElementById("score").textContent = "0";
-
-  // Reset submit button state
-  const submitBtn = document.getElementById("submitScoreBtn");
-  const submittedMsg = document.getElementById("scoreSubmitted");
-  if (submitBtn) {
-    submitBtn.style.display = "inline-block";
-    submitBtn.disabled = false;
-    submitBtn.textContent = "🏆 Highscore einreichen";
-  }
-  if (submittedMsg) {
-    submittedMsg.style.display = "none";
-  }
 }
 
 /**
@@ -286,8 +314,8 @@ function update() {
   player.y += player.velocityY;
 
   // Ground collision
-  if (player.y >= groundY) {
-    player.y = groundY;
+  if (player.y >= player.groundY) {
+    player.y = player.groundY;
     player.velocityY = 0;
     player.jumping = false;
   }
@@ -330,7 +358,7 @@ function spawnObstacle() {
     obstacleEmojis[Math.floor(Math.random() * obstacleEmojis.length)];
   obstacles.push({
     x: canvas.width,
-    y: groundY,
+    y: player.groundY,
     width: 35,
     height: 35,
     emoji: emoji,
@@ -365,8 +393,8 @@ function draw() {
   ctx.strokeStyle = "#2d3436";
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.moveTo(0, groundY + 40);
-  ctx.lineTo(canvas.width, groundY + 40);
+  ctx.moveTo(0, player.groundY + 40);
+  ctx.lineTo(canvas.width, player.groundY + 40);
   ctx.stroke();
 
   // Draw obstacles
@@ -419,6 +447,11 @@ function endGame() {
     document.getElementById("highscore").textContent = highScore;
   }
 
+  // Automatically submit highscore
+  if (playerName && finalScore > 0) {
+    submitHighscore();
+  }
+
   // Show game over overlay
   document.getElementById("gameOverlay").classList.remove("hidden");
   document.getElementById("gameStartText").style.display = "none";
@@ -441,7 +474,7 @@ function jump() {
     return;
   }
 
-  if (!player.jumping && player.y >= groundY) {
+  if (!player.jumping && player.y >= player.groundY) {
     player.velocityY = jumpForce;
     player.jumping = true;
   }
@@ -488,14 +521,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Touch controls for game
-  const gameCanvasWrapper = document.querySelector(".game-canvas-wrapper");
-  if (gameCanvasWrapper) {
-    gameCanvasWrapper.addEventListener("click", function () {
+  // Touch controls for game - anywhere on canvas
+  const gameCanvas = document.getElementById("gameCanvas");
+  if (gameCanvas) {
+    gameCanvas.addEventListener("click", function () {
       jump();
     });
 
-    gameCanvasWrapper.addEventListener("touchstart", function (e) {
+    gameCanvas.addEventListener("touchstart", function (e) {
       e.preventDefault();
       jump();
     });
