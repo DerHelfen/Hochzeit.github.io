@@ -521,14 +521,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Touch controls for game - anywhere on canvas
+  // Touch controls for game - anywhere on canvas or overlay
   const gameCanvas = document.getElementById("gameCanvas");
+  const gameCanvasWrapper = document.querySelector(".game-canvas-wrapper");
+
   if (gameCanvas) {
     gameCanvas.addEventListener("click", function () {
       jump();
     });
 
     gameCanvas.addEventListener("touchstart", function (e) {
+      e.preventDefault();
+      jump();
+    });
+  }
+
+  // Also add event listeners to the canvas wrapper for better touch detection
+  if (gameCanvasWrapper) {
+    gameCanvasWrapper.addEventListener("click", function () {
+      jump();
+    });
+
+    gameCanvasWrapper.addEventListener("touchstart", function (e) {
       e.preventDefault();
       jump();
     });
