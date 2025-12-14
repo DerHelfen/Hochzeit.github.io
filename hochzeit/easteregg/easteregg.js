@@ -209,17 +209,26 @@ function initGame() {
   canvas = document.getElementById("gameCanvas");
   ctx = canvas.getContext("2d");
 
-  // Set canvas size based on container
+  // Set canvas size based on container with proper device pixel ratio handling
   const container = canvas.parentElement;
   const containerWidth = container.clientWidth;
   const containerHeight = container.clientHeight;
+  const devicePixelRatio = window.devicePixelRatio || 1;
 
-  canvas.width = containerWidth;
-  canvas.height = containerHeight;
+  // Set the canvas display size (CSS pixels)
+  canvas.style.width = containerWidth + "px";
+  canvas.style.height = containerHeight + "px";
 
-  // Update game physics for new canvas size
-  player.y = canvas.height - 100;
-  player.groundY = canvas.height - 100;
+  // Set the canvas internal size (actual pixels for crisp rendering)
+  canvas.width = containerWidth * devicePixelRatio;
+  canvas.height = containerHeight * devicePixelRatio;
+
+  // Scale the context to match device pixel ratio
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+
+  // Update game physics for new canvas size (use display size, not internal size)
+  player.y = containerHeight - 100;
+  player.groundY = containerHeight - 100;
 
   // Update highscore display
   document.getElementById("highscore").textContent = highScore;
@@ -354,10 +363,12 @@ function update() {
  * Spawn a new obstacle
  */
 function spawnObstacle() {
+  const container = canvas.parentElement;
+  const displayWidth = container.clientWidth;
   const emoji =
     obstacleEmojis[Math.floor(Math.random() * obstacleEmojis.length)];
   obstacles.push({
-    x: canvas.width,
+    x: displayWidth,
     y: player.groundY,
     width: 35,
     height: 35,
@@ -382,9 +393,13 @@ function checkCollision(a, b) {
  * Draw the game
  */
 function draw() {
+  const container = canvas.parentElement;
+  const displayWidth = container.clientWidth;
+  const displayHeight = container.clientHeight;
+
   // Clear canvas
   ctx.fillStyle = "#fdf6e3";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, displayWidth, displayHeight);
 
   // Draw decorative background elements
   drawBackground();
@@ -394,7 +409,7 @@ function draw() {
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(0, player.groundY + 40);
-  ctx.lineTo(canvas.width, player.groundY + 40);
+  ctx.lineTo(displayWidth, player.groundY + 40);
   ctx.stroke();
 
   // Draw obstacles
@@ -413,13 +428,16 @@ function draw() {
  * Draw background decorations
  */
 function drawBackground() {
+  const container = canvas.parentElement;
+  const displayWidth = container.clientWidth;
+
   ctx.globalAlpha = 0.1;
   ctx.font = "20px Arial";
 
   // Floating hearts in background
   const time = Date.now() / 1000;
   for (let i = 0; i < 5; i++) {
-    const x = ((i * 120 + time * 20) % (canvas.width + 50)) - 25;
+    const x = ((i * 120 + time * 20) % (displayWidth + 50)) - 25;
     const y = 30 + Math.sin(time + i) * 15;
     ctx.fillText("💗", x, y);
   }
