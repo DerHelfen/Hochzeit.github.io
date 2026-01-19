@@ -38,12 +38,7 @@
       </div>
 
       <div class="rsvp-card">
-        <form
-          id="rsvpForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLScSVOodADafzDHE8qC4RLEIpPF26f2ZwpO7cTJ1MlI7KigrYg/formResponse"
-          method="POST"
-          target="hidden_iframe"
-        >
+        <form id="rsvpForm">
           <div class="form-group">
             <label for="name" class="form-label">Name *</label>
             <input
@@ -149,13 +144,6 @@
             >
           </button>
         </form>
-
-        <!-- Hidden iframe for form submission -->
-        <iframe
-          name="hidden_iframe"
-          id="hidden_iframe"
-          style="display: none"
-        ></iframe>
 
         <!-- Success message for YES -->
         <div id="rsvpSuccessYes" class="rsvp-success" style="display: none">
