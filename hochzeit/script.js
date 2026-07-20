@@ -230,6 +230,7 @@ function initializeHero() {
   const hero = document.getElementById("start");
   const video = document.getElementById("heroVideo");
   const endCard = document.getElementById("heroEndCard");
+  const startButton = document.getElementById("videoStart");
   const soundToggle = document.getElementById("soundToggle");
   const soundLabel = soundToggle?.querySelector("span");
   const skipButton = document.getElementById("heroSkip");
@@ -240,6 +241,7 @@ function initializeHero() {
     !hero ||
     !video ||
     !endCard ||
+    !startButton ||
     !soundToggle ||
     !soundLabel ||
     !skipButton ||
@@ -254,6 +256,17 @@ function initializeHero() {
   let transitionTimer = null;
   let scrollTimer = null;
 
+  video.defaultMuted = false;
+  video.muted = false;
+  video.volume = 1;
+
+  const setManualStart = (isRequired) => {
+    needsManualStart = isRequired;
+    hero.classList.toggle("needs-manual-start", isRequired);
+    startButton.setAttribute("aria-hidden", String(!isRequired));
+    soundToggle.setAttribute("aria-hidden", String(isRequired));
+  };
+
   const updateSoundButton = () => {
     soundToggle.classList.toggle("is-unmuted", !video.muted);
     soundLabel.textContent = video.muted
@@ -264,6 +277,7 @@ function initializeHero() {
 
   const markVideoUnavailable = () => {
     if (!videoAvailable) {
+      setManualStart(false);
       hero.classList.add("video-unavailable");
       video.removeAttribute("autoplay");
     }
@@ -272,6 +286,7 @@ function initializeHero() {
   const showFinalMessage = () => {
     window.clearTimeout(transitionTimer);
     window.clearTimeout(scrollTimer);
+    setManualStart(false);
     hero.classList.add("show-end-card");
     endCard.setAttribute("aria-hidden", "false");
     soundToggle.setAttribute("aria-hidden", "true");
@@ -296,19 +311,19 @@ function initializeHero() {
     window.clearTimeout(scrollTimer);
     hero.classList.remove("show-end-card", "is-leaving");
     endCard.setAttribute("aria-hidden", "true");
-    soundToggle.setAttribute("aria-hidden", "false");
+    setManualStart(false);
     video.currentTime = 0;
+    video.muted = false;
+    video.volume = 1;
 
     video
       .play()
       .then(() => {
-        needsManualStart = false;
+        setManualStart(false);
         updateSoundButton();
       })
       .catch(() => {
-        needsManualStart = true;
-        soundLabel.textContent = "Video starten";
-        soundToggle.setAttribute("aria-label", "Video starten");
+        setManualStart(true);
       });
   };
 
@@ -319,7 +334,7 @@ function initializeHero() {
 
   video.addEventListener("playing", () => {
     videoAvailable = true;
-    needsManualStart = false;
+    setManualStart(false);
     hero.classList.remove("video-unavailable");
     updateSoundButton();
   });
@@ -338,19 +353,31 @@ function initializeHero() {
       if (video.error) {
         markVideoUnavailable();
       } else {
-        needsManualStart = true;
-        soundLabel.textContent = "Video starten";
-        soundToggle.setAttribute("aria-label", "Video starten");
+        setManualStart(true);
       }
     });
   }
 
+  startButton.addEventListener("click", () => {
+    video.muted = false;
+    video.volume = 1;
+    video
+      .play()
+      .then(() => {
+        setManualStart(false);
+        updateSoundButton();
+      })
+      .catch(markVideoUnavailable);
+  });
+
   soundToggle.addEventListener("click", () => {
     if (needsManualStart || video.paused) {
+      video.muted = false;
+      video.volume = 1;
       video
         .play()
         .then(() => {
-          needsManualStart = false;
+          setManualStart(false);
           updateSoundButton();
         })
         .catch(markVideoUnavailable);

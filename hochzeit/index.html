@@ -46,7 +46,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="style.css?v=20260720-3" as="style" />
+    <link rel="preload" href="style.css?v=20260720-13" as="style" />
     <link
       rel="preload"
       href="assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
@@ -56,7 +56,7 @@
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260720-3" />
+    <link rel="stylesheet" href="style.css?v=20260720-13" />
   </head>
 
   <body>
@@ -80,21 +80,20 @@
       </a>
       <nav class="main-nav" aria-label="Hauptnavigation">
         <a href="#fotograf">Fotograf</a>
-        <a href="#photobox">Photobox</a>
+        <a href="#photobox">Fotobox</a>
         <a href="#aufnahmen">Aufnahmen</a>
         <a href="#mailbox">Mailbox</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero" id="start" aria-labelledby="heroTitle">
+      <section class="hero" id="start" aria-label="Joana und Jan">
         <div class="hero-media" aria-hidden="true">
           <div class="hero-fallback"></div>
           <video
             id="heroVideo"
             poster="assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
             autoplay
-            muted
             playsinline
             preload="metadata"
           >
@@ -106,7 +105,25 @@
         </div>
         <div class="hero-shade"></div>
 
-        <div class="hero-copy" id="heroCopy">
+        <button
+          class="video-start"
+          id="videoStart"
+          type="button"
+          aria-label="Video mit Ton starten"
+          aria-hidden="true"
+          title="Video mit Ton starten"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m9 5 10 7-10 7V5Z" />
+          </svg>
+        </button>
+
+        <div
+          class="hero-end-card"
+          id="heroEndCard"
+          aria-live="polite"
+          aria-hidden="true"
+        >
           <p class="eyebrow hero-eyebrow">
             16. Mai 2026 <span></span> Bleckmanns Hof
           </p>
@@ -126,28 +143,24 @@
           </button>
         </div>
 
-        <div
-          class="hero-end-card"
-          id="heroEndCard"
-          aria-live="polite"
-          aria-hidden="true"
+        <button
+          class="video-replay"
+          id="videoReplay"
+          type="button"
+          aria-label="Video erneut abspielen"
+          title="Video erneut abspielen"
         >
-          <p>Danke, dass Ihr mit uns gefeiert habt!</p>
-          <span>Diese Erinnerungen gehören auch euch.</span>
-          <button class="video-replay" id="videoReplay" type="button">
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6" />
-              <path d="M4 4v4.6h4.6" />
-            </svg>
-            Video erneut abspielen
-          </button>
-        </div>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6" />
+            <path d="M4 4v4.6h4.6" />
+          </svg>
+        </button>
 
         <button
           class="sound-toggle"
           id="soundToggle"
           type="button"
-          aria-label="Videoton einschalten"
+          aria-label="Videoton ausschalten"
         >
           <svg class="sound-on" aria-hidden="true" viewBox="0 0 24 24">
             <path d="M11 5 6 9H2v6h4l5 4V5Z" />
@@ -157,7 +170,7 @@
             <path d="M11 5 6 9H2v6h4l5 4V5Z" />
             <path d="m16 10 5 5m0-5-5 5" />
           </svg>
-          <span>Ton einschalten</span>
+          <span>Ton ausschalten</span>
         </button>
 
         <div class="hero-scroll" aria-hidden="true">
@@ -232,9 +245,9 @@
             </h2>
             <p>
               Die leisen Blicke, das große Lachen und all die Gefühle
-              dazwischen: Unser Fotograf hat die schönsten Momente des Tages für
-              uns festgehalten. In der vollständigen Galerie könnt ihr sie noch
-              einmal miterleben.
+              dazwischen: Unsere Fotografin hat die schönsten Momente des Tages
+              für uns festgehalten. In der vollständigen Galerie könnt ihr sie
+              noch einmal miterleben.
             </p>
             <a
               class="cta-link cta-light"
@@ -335,7 +348,7 @@
             </h2>
             <p>
               Diese Bilder brauchen keine perfekten Posen – nur euch, gute Laune
-              und ziemlich kreative Accessoires. Die Photobox hat festgehalten,
+              und ziemlich kreative Accessoires. Die Fotobox hat festgehalten,
               wie ausgelassen dieser Abend wirklich war. Viel Spaß beim
               Wiederentdecken!
             </p>
@@ -345,7 +358,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Alle Photobox-Bilder ansehen
+              Alle Fotobox-Bilder ansehen
               <svg aria-hidden="true" viewBox="0 0 24 24">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
@@ -407,11 +420,7 @@
             <h2 id="aufnahmenTitle">
               Worte, Stimmen<br />und <em>bewegte Momente</em>
             </h2>
-            <p>
-              Manche Erinnerungen möchte man nicht nur sehen, sondern noch
-              einmal hören und erleben. Hier findet ihr die Aufnahmen unserer
-              Trauung, der Reden und der Feier.
-            </p>
+            <p></p>
           </header>
 
           <div class="film-card reveal">
@@ -534,6 +543,6 @@
       </svg>
     </button>
 
-    <script src="script.js?v=20260720-2" defer></script>
+    <script src="script.js?v=20260720-4" defer></script>
   </body>
 </html>
