@@ -1,399 +1,539 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="theme-color" content="#2d3436" />
+    <meta
+      name="description"
+      content="Danke, dass ihr unsere Hochzeit am 16. Mai 2026 zu einem unvergesslichen Tag gemacht habt. Entdeckt hier unsere schönsten gemeinsamen Erinnerungen."
+    />
+    <meta
+      name="keywords"
+      content="Hochzeit, Jan und Joana, Erinnerungen, Hochzeitsfotos, Bleckmanns Hof"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light only" />
-  <meta name="description"
-    content="Feiert mit uns unsere Hochzeit am 16. Mai 2026 am Bleckmanns Hof in Werne. Jan & Joana laden euch herzlich zu ihrer Trauung und Feier ein." />
-  <meta name="keywords" content="Hochzeit, Jan Helfen, Joana Leipzig, Bleckmanns Hof, Werne, 16. Mai 2026" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://helfen.dev/hochzeit/" />
+    <meta property="og:title" content="Danke von Herzen – Joana & Jan" />
+    <meta
+      property="og:description"
+      content="Ein Tag, ein Ja und unendlich viele Erinnerungen. Danke, dass ihr mit uns gefeiert habt!"
+    />
+    <meta
+      property="og:image"
+      content="https://helfen.dev/hochzeit/assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
+    />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://derhelfen.github.io/Hochzeit.github.io/" />
-  <meta property="og:title" content="Unsere Hochzeit – Jan & Joana" />
-  <meta property="og:description"
-    content="Feiert mit uns am 16. Mai 2026 am Bleckmanns Hof in Werne. Wir freuen uns auf euch!" />
-  <meta property="og:image" content="https://derhelfen.github.io/Hochzeit.github.io/assets/bilder/wir/foto1.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Danke von Herzen – Joana & Jan" />
+    <meta
+      name="twitter:description"
+      content="Unsere schönsten Hochzeitserinnerungen – für euch und mit euch."
+    />
+    <meta
+      name="twitter:image"
+      content="https://helfen.dev/hochzeit/assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
+    />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://derhelfen.github.io/Hochzeit.github.io/" />
-  <meta property="twitter:title" content="Unsere Hochzeit – Jan & Joana" />
-  <meta property="twitter:description"
-    content="Feiert mit uns am 16. Mai 2026 am Bleckmanns Hof in Werne. Wir freuen uns auf euch!" />
-  <meta property="twitter:image" content="https://derhelfen.github.io/Hochzeit.github.io/assets/bilder/wir/foto1.jpg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤍</text></svg>"
+    />
+    <title>Danke von Herzen – Joana & Jan</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💍</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="style.css?v=20260720-3" as="style" />
+    <link
+      rel="preload"
+      href="assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
+      as="image"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=20260720-3" />
+  </head>
 
-  <title>Unsere Hochzeit – Jan & Joana</title>
+  <body>
+    <a class="skip-link" href="#danke">Direkt zum Inhalt</a>
 
-  <!-- Preconnect to external domains for faster loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://www.google.com" />
-
-  <!-- Preload critical resources -->
-  <link rel="preload" href="style.css" as="style" />
-  <link rel="preload" href="assets/bilder/wir/foto1.jpg" as="image" />
-  <link rel="preload" href="assets/bilder/wir/foto2.jpg" as="image" />
-
-  <!-- Load fonts with font-display swap for better performance -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <!-- Loading Spinner -->
-  <div id="loading-screen" class="loading-screen">
-    <div class="spinner">
-      <div class="ring"></div>
-      <div class="ring"></div>
-      <div class="ring"></div>
-      <p class="loading-text">Jan & Joana</p>
-    </div>
-  </div>
-
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="ITry.webm" type="audio/webm" />
-    Your browser does not support the audio element.
-  </audio>
-  <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
-    <span class="music-icon"></span>
-  </button>
-
-  <section class="hero-section">
-    <div class="bg">
-      <div class="slideshow">
-        <img src="assets/bilder/wir/foto1.jpg" alt="Photo 1" loading="eager" decoding="async" />
-        <img src="assets/bilder/wir/foto2.jpg" alt="Photo 2" loading="eager" decoding="async" />
-        <img src="assets/bilder/wir/foto3.jpg" alt="Photo 3" loading="eager" decoding="async" />
-        <img src="assets/bilder/wir/foto4.jpg" alt="Photo 4" loading="eager" decoding="async" />
-        <img src="assets/bilder/wir/foto1.jpg" alt="Photo 1" loading="lazy" decoding="async" />
-        <img src="assets/bilder/wir/foto2.jpg" alt="Photo 2" loading="lazy" decoding="async" />
-        <img src="assets/bilder/wir/foto3.jpg" alt="Photo 3" loading="lazy" decoding="async" />
-        <img src="assets/bilder/wir/foto4.jpg" alt="Photo 4" loading="lazy" decoding="async" />
+    <div
+      class="loading-screen"
+      id="loadingScreen"
+      role="status"
+      aria-live="polite"
+    >
+      <div class="loader-mark" aria-hidden="true">
+        <span>J</span><i>&</i><span>J</span>
       </div>
+      <p>Unsere Erinnerungen werden geladen …</p>
     </div>
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>
-          Joana
-          <span id="easterEggTrigger" style="cursor: pointer">&</span> Jan
-        </h1>
-        <p class="hero-subtitle">WE'RE GETTING MARRIED!</p>
-        <nav class="nav-bar">
-          <a href="#datum">Datum</a>
-          <a href="#location">Location</a>
-          <a href="#ablauf">Ablauf</a>
-          <a href="#faq">FAQ</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-      </div>
-      <div class="scroll-indicator">
-        <span>↓</span>
-      </div>
-    </div>
-  </section>
 
-  <section class="info-section" id="datum">
-    <div class="info-content">
-      <h2 style="font-size: 2.5rem; margin-bottom: 30px">16. Mai 2026</h2>
-      <div id="countdown" class="countdown-container">
-        <div class="countdown-box">
-          <div class="countdown-number" id="days">00</div>
-          <div class="countdown-label">TAGE</div>
-        </div>
-        <div class="countdown-box">
-          <div class="countdown-number" id="hours">00</div>
-          <div class="countdown-label">STUNDEN</div>
-        </div>
-        <div class="countdown-box">
-          <div class="countdown-number" id="minutes">00</div>
-          <div class="countdown-label">MINUTEN</div>
-        </div>
-        <div class="countdown-box">
-          <div class="countdown-number" id="seconds">00</div>
-          <div class="countdown-label">SEKUNDEN</div>
-        </div>
-      </div>
-      <a href="rsvp/rsvp.html" class="rsvp-cta-btn">💌 Jetzt zusagen</a>
-    </div>
-  </section>
+    <header class="site-header" id="siteHeader">
+      <a class="wordmark" href="#start" aria-label="Zurück zum Anfang">
+        <span>Joana</span><i>&</i><span>Jan</span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="#fotograf">Fotograf</a>
+        <a href="#photobox">Photobox</a>
+        <a href="#aufnahmen">Aufnahmen</a>
+        <a href="#mailbox">Mailbox</a>
+      </nav>
+    </header>
 
-  <section class="info-section" id="location">
-    <div class="info-content">
-      <h2 style="font-size: 2.5rem; margin-bottom: 30px">Location</h2>
-      <h2 style="margin-bottom: 10px">Bleckmanns Hof</h2>
-      <p style="font-size: 1.2rem; margin-bottom: 30px">
-        Wesseler Str. 6, 59368 Werne
-      </p>
-      <p style="font-size: 1rem; font-style: italic; margin-bottom: 40px">
-        Sowohl die Trauung als auch die Hochzeitsfeier finden am Bleckmanns
-        Hof statt.
-      </p>
+    <main>
+      <section class="hero" id="start" aria-labelledby="heroTitle">
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-fallback"></div>
+          <video
+            id="heroVideo"
+            poster="assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
+            autoplay
+            muted
+            playsinline
+            preload="metadata"
+          >
+            <source
+              src="assets/video/WhatsApp Video 2026-07-20 at 00.14.04.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="hero-shade"></div>
 
-      <div class="location-container">
-        <div class="location-gallery">
-          <button class="gallery-arrow gallery-arrow-left" onclick="changeImage(-1)">
-            &#10094;
-          </button>
-          <img id="galleryImage" src="assets/bilder/bleckmannshof/bleckmannshof_1.jpg" alt="Bleckmanns Hof"
-            loading="lazy" decoding="async" />
-          <button class="gallery-arrow gallery-arrow-right" onclick="changeImage(1)">
-            &#10095;
+        <div class="hero-copy" id="heroCopy">
+          <p class="eyebrow hero-eyebrow">
+            16. Mai 2026 <span></span> Bleckmanns Hof
+          </p>
+          <h1 id="heroTitle">
+            <span>Joana</span>
+            <i>&</i>
+            <span>Jan</span>
+          </h1>
+          <p class="hero-kicker">
+            Ein Tag. Ein Ja. Unendlich viele Erinnerungen.
+          </p>
+          <button class="text-button hero-skip" id="heroSkip" type="button">
+            Erinnerungen entdecken
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M12 5v14M6 13l6 6 6-6" />
+            </svg>
           </button>
         </div>
 
-        <div class="location-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.8!2d7.6308!3d51.6668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b90bf7e0fe6339%3A0x4634454122830055!2sBleckmanns%20Hof!5e0!3m2!1sde!2sde!4v1234567890"
-            width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-section" id="ablauf">
-    <div class="info-content">
-      <h2 style="font-size: 2.5rem; margin-bottom: 20px">Ablauf des Tages</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
-        Freut euch auf einen unvergesslichen Tag voller schöner Momente!
-      </p>
-      <div class="timeline">
-        <!-- Item 1: Left -->
-        <div class="timeline-item timeline-left timeline-first">
-          <div class="timeline-content">
-            <span class="schedule-time">13:45</span>
-            <span class="schedule-title">Ankunft</span>
-          </div>
-          <div class="timeline-center">
-            <img src="assets/bilder/ablauf/ankunft-removebg-preview.png" alt="Ankunft" class="timeline-icon"
-              loading="lazy" />
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-spacer"></div>
+        <div
+          class="hero-end-card"
+          id="heroEndCard"
+          aria-live="polite"
+          aria-hidden="true"
+        >
+          <p>Danke, dass Ihr mit uns gefeiert habt!</p>
+          <span>Diese Erinnerungen gehören auch euch.</span>
+          <button class="video-replay" id="videoReplay" type="button">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6" />
+              <path d="M4 4v4.6h4.6" />
+            </svg>
+            Video erneut abspielen
+          </button>
         </div>
 
-        <!-- Item 2: Right -->
-        <div class="timeline-item timeline-right">
-          <div class="timeline-spacer"></div>
-          <div class="timeline-center">
-            <div class="timeline-line"></div>
-            <img src="assets/bilder/ablauf/trauung-removebg-preview.png" alt="Freie Trauung" class="timeline-icon"
-              loading="lazy" />
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <span class="schedule-time">14:00</span>
-            <span class="schedule-title">Freie Trauung</span>
-          </div>
-        </div>
+        <button
+          class="sound-toggle"
+          id="soundToggle"
+          type="button"
+          aria-label="Videoton einschalten"
+        >
+          <svg class="sound-on" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+            <path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" />
+          </svg>
+          <svg class="sound-off" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+            <path d="m16 10 5 5m0-5-5 5" />
+          </svg>
+          <span>Ton einschalten</span>
+        </button>
 
-        <!-- Item 3: Left -->
-        <div class="timeline-item timeline-left">
-          <div class="timeline-content">
-            <span class="schedule-time">15:00</span>
-            <span class="schedule-title">Sektempfang</span>
-          </div>
-          <div class="timeline-center">
-            <div class="timeline-line"></div>
-            <img src="assets/bilder/ablauf/sektempfang-removebg-preview.png" alt="Sektempfang" class="timeline-icon"
-              loading="lazy" />
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-spacer"></div>
+        <div class="hero-scroll" aria-hidden="true">
+          <span></span>
         </div>
+      </section>
 
-        <!-- Item 4: Right -->
-        <div class="timeline-item timeline-right">
-          <div class="timeline-spacer"></div>
-          <div class="timeline-center">
-            <div class="timeline-line"></div>
-            <img src="assets/bilder/ablauf/kaffeekuchen-removebg-preview.png" alt="Kaffee & Kuchen"
-              class="timeline-icon" loading="lazy" />
-            <div class="timeline-line"></div>
+      <section
+        class="gratitude section-light"
+        id="danke"
+        aria-labelledby="dankeTitle"
+      >
+        <div class="botanical botanical-left" aria-hidden="true"></div>
+        <div class="botanical botanical-right" aria-hidden="true"></div>
+        <div class="section-shell gratitude-grid">
+          <div class="gratitude-heading reveal">
+            <p class="eyebrow">An unsere Lieblingsmenschen</p>
+            <h2 id="dankeTitle">Von Herzen<br /><em>Danke.</em></h2>
+            <div class="date-seal" aria-label="Hochzeitsdatum 16. Mai 2026">
+              <span>16</span>
+              <i>05</i>
+              <small>2026</small>
+            </div>
           </div>
-          <div class="timeline-content">
-            <span class="schedule-time">15:30</span>
-            <span class="schedule-title">Kaffee & Kuchen</span>
+          <div class="gratitude-copy reveal reveal-delay">
+            <p class="lead">
+              Ihr habt aus unserem großen Tag eine Erinnerung gemacht, die für
+              immer bleibt.
+            </p>
+            <p>
+              Danke für jedes Lächeln, jede Umarmung und jedes liebe Wort. Ihr
+              habt mit uns gelacht, geweint, getanzt und gefeiert – und aus
+              unserer Hochzeit einen Tag gemacht, den wir für immer im Herzen
+              tragen.
+            </p>
+            <p>
+              Hier teilen wir einige dieser Augenblicke noch einmal mit euch.
+              Nehmt euch Zeit, schaut euch um und erlebt unseren Tag gemeinsam
+              mit uns ein zweites Mal.
+            </p>
+            <p class="signature">In Liebe, <strong>Joana & Jan</strong></p>
           </div>
         </div>
+      </section>
 
-        <!-- Item 5: Left -->
-        <div class="timeline-item timeline-left">
-          <div class="timeline-content">
-            <span class="schedule-time">18:30</span>
-            <span class="schedule-title">Essen</span>
-          </div>
-          <div class="timeline-center">
-            <div class="timeline-line"></div>
-            <img src="assets/bilder/ablauf/essen-removebg-preview.png" alt="Essen" class="timeline-icon"
-              loading="lazy" />
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-spacer"></div>
+      <section
+        class="gallery-story gallery-story-photographer"
+        id="fotograf"
+        data-gallery="photographer"
+        aria-labelledby="fotografTitle"
+      >
+        <div class="gallery-background" aria-hidden="true">
+          <img
+            class="gallery-layer is-active"
+            src="assets/bilder/photographer-bestofs/DK5A3990_websize.jpg"
+            alt=""
+          />
+          <img
+            class="gallery-layer"
+            src="assets/bilder/photographer-bestofs/DK5A5073_websize.jpg"
+            alt=""
+          />
         </div>
+        <div class="gallery-vignette"></div>
+        <div class="section-shell gallery-layout">
+          <article class="story-card reveal">
+            <p class="eyebrow light">
+              01 <span></span> Unsere Geschichte in Bildern
+            </p>
+            <h2 id="fotografTitle">
+              Augenblicke für<br /><em>die Ewigkeit</em>
+            </h2>
+            <p>
+              Die leisen Blicke, das große Lachen und all die Gefühle
+              dazwischen: Unser Fotograf hat die schönsten Momente des Tages für
+              uns festgehalten. In der vollständigen Galerie könnt ihr sie noch
+              einmal miterleben.
+            </p>
+            <a
+              class="cta-link cta-light"
+              href="https://kundengalerie.studiolaecheln.de/q2RrmHhRLH7GJ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Zur Fotografen-Galerie
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <small class="new-tab-note">Öffnet sich in einem neuen Tab</small>
+          </article>
 
-        <!-- Item 6: Right -->
-        <div class="timeline-item timeline-right">
-          <div class="timeline-spacer"></div>
-          <div class="timeline-center">
-            <div class="timeline-line"></div>
-            <img src="assets/bilder/ablauf/tanz-removebg-preview.png" alt="Eröffnungstanz" class="timeline-icon"
-              loading="lazy" />
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <span class="schedule-time">20:30</span>
-            <span class="schedule-title">Eröffnungstanz</span>
+          <div
+            class="gallery-controls reveal reveal-delay"
+            role="group"
+            aria-label="Fotografenfotos steuern"
+          >
+            <button
+              type="button"
+              data-gallery-action="previous"
+              aria-label="Vorheriges Fotografenfoto"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+            <button
+              class="gallery-pause"
+              type="button"
+              data-gallery-action="pause"
+              aria-label="Diashow pausieren"
+            >
+              <svg class="pause-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M9 5v14M15 5v14" />
+              </svg>
+              <svg class="play-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m9 5 10 7-10 7V5Z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-gallery-action="next"
+              aria-label="Nächstes Fotografenfoto"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+            <p class="gallery-status" aria-live="polite">
+              <span>01</span><i></i><small>19</small>
+            </p>
           </div>
         </div>
+      </section>
 
-        <!-- Item 7: Left -->
-        <div class="timeline-item timeline-left timeline-last">
-          <div class="timeline-content">
-            <span class="schedule-time">bis 4:00</span>
-            <span class="schedule-title">Party</span>
-          </div>
-          <div class="timeline-center">
-            <div class="timeline-line"></div>
-            <img src="assets/bilder/ablauf/party-removebg-preview.png" alt="Party" class="timeline-icon"
-              loading="lazy" />
-          </div>
-          <div class="timeline-spacer"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-section" id="faq">
-    <div class="info-content">
-      <h2 style="font-size: 2.5rem; margin-bottom: 20px">
-        Häufig gestellte Fragen
-      </h2>
-      <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
-        Hier findet ihr Antworten auf die wichtigsten Fragen zu unserem großen
-        Tag.
-      </p>
-      <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">Was können wir euch schenken?</div>
-          <div class="faq-answer">
-            Über einen kleinen Beitrag zum Start in unser gemeinsames Leben
-            würden wir uns sehr freuen!
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Welche Musik wird gespielt?</div>
-          <div class="faq-answer">
-            Unser DJ wird für gute Stimmung sorgen! Damit nicht nur unsere
-            Lieblingslieder laufen, würden wir uns freuen, eure Musikwünsche
-            zu erfahren.
-            <a href="playlist/playlist.html" class="playlist-link">Hier könnt ihr eure Songwünsche einreichen! 🎵</a>
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            Kann ich meinen Partner / meine Partnerin mitbringen?
-          </div>
-          <div class="faq-answer">
-            Selbstverständlich sind alle Partner und Partnerinnen herzlich
-            willkommen! Falls ihr bis zur Hochzeit jemanden kennenlernt, gebt
-            uns einfach kurz Bescheid – wir freuen uns, auch euren neuen
-            Partner oder eure neue Partnerin bei uns begrüßen zu dürfen.
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Kann ich meine Kinder mitbringen?</div>
-          <div class="faq-answer">
-            Natürlich! Wir freuen uns über eure Kinder und sorgen für Spiele
-            und Beschäftigung.
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Gibt es einen Dresscode?</div>
-          <div class="faq-answer">
-            Wir würden uns freuen, wenn ihr euch für unseren besonderen Tag
-            schick kleidet. Pastelfarbene Akzente sind herzlich willkommen und
-            passen wunderbar zu unserer Frühlingshochzeit!
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            Gibt es vegetarische und vegane Optionen beim Essen?
-          </div>
-          <div class="faq-answer">
-            Wir haben vegetarische Optionen für euch. Bitte teilt uns bei der
-            Rückmeldung mit, falls wir eine vegane Option organisieren sollen.
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">
-            Gibt es Übernachtungsmöglichkeiten vor Ort?
-          </div>
-          <div class="faq-answer">
-            Es gibt verschiede Möglichkeiten vor Ort oder in der Nähe der Location eine Hotelreservierung vorzunehmen.
-            Falls ihr Interesse habt, gebt uns Bescheid und wir helfen euch gerne weiter!
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-section" id="kontakt">
-    <div class="info-content">
-      <h2 style="font-size: 2.5rem; margin-bottom: 20px">Kontakt</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 40px; font-style: italic">
-        Bei Fragen stehen wir und unsere Trauzeugen euch gerne zur Verfügung!
-      </p>
-
-      <div class="contact-section">
-        <div class="contact-group">
-          <h4 class="contact-subheading">Brautpaar</h4>
-          <p class="contact-name">Joana Leipzig</p>
-          <p class="contact-phone">
-            <a href="tel:+4917683223077">0176 8322 3077</a>
+      <section class="memory-quote" aria-label="Erinnerung">
+        <div class="memory-quote-image" aria-hidden="true"></div>
+        <div class="memory-quote-overlay"></div>
+        <blockquote class="reveal">
+          <span aria-hidden="true">“</span>
+          <p>
+            Die schönsten Erinnerungen sind die, bei denen man beim Zurückdenken
+            wieder lächeln muss.
           </p>
-          <p class="contact-name" style="margin-top: 15px">Jan Helfen</p>
-          <p class="contact-phone">
-            <a href="tel:+49157596146869">0157 5961 4689</a>
+          <span aria-hidden="true">”</span>
+        </blockquote>
+      </section>
+
+      <section
+        class="gallery-story gallery-story-photobox"
+        id="photobox"
+        data-gallery="photobox"
+        aria-labelledby="photoboxTitle"
+      >
+        <div class="gallery-background" aria-hidden="true">
+          <img
+            class="gallery-layer is-active"
+            src="assets/bilder/photobox-bestofs/IMG_0342_20260516_235812.jpg"
+            alt=""
+          />
+          <img
+            class="gallery-layer"
+            src="assets/bilder/photobox-bestofs/IMG_0297_20260516_232833.jpg"
+            alt=""
+          />
+        </div>
+        <div class="gallery-vignette"></div>
+        <div class="section-shell gallery-layout gallery-layout-right">
+          <article class="story-card reveal">
+            <p class="eyebrow light">
+              02 <span></span> Lachen ausdrücklich erwünscht
+            </p>
+            <h2 id="photoboxTitle">
+              Konfetti,<br /><em>Quatsch & Lieblingsmenschen</em>
+            </h2>
+            <p>
+              Diese Bilder brauchen keine perfekten Posen – nur euch, gute Laune
+              und ziemlich kreative Accessoires. Die Photobox hat festgehalten,
+              wie ausgelassen dieser Abend wirklich war. Viel Spaß beim
+              Wiederentdecken!
+            </p>
+            <a
+              class="cta-link cta-light"
+              href="https://fotoshare.co/e/0IRUbeMxN_sMBRMTdPJvI"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Alle Photobox-Bilder ansehen
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <small class="new-tab-note">Öffnet sich in einem neuen Tab</small>
+          </article>
+
+          <div
+            class="gallery-controls reveal reveal-delay"
+            role="group"
+            aria-label="Photobox-Bilder steuern"
+          >
+            <button
+              type="button"
+              data-gallery-action="previous"
+              aria-label="Vorheriges Photobox-Bild"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+            <button
+              class="gallery-pause"
+              type="button"
+              data-gallery-action="pause"
+              aria-label="Diashow pausieren"
+            >
+              <svg class="pause-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M9 5v14M15 5v14" />
+              </svg>
+              <svg class="play-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m9 5 10 7-10 7V5Z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-gallery-action="next"
+              aria-label="Nächstes Photobox-Bild"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+            <p class="gallery-status" aria-live="polite">
+              <span>01</span><i></i><small>07</small>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="keepsakes section-light"
+        id="aufnahmen"
+        aria-labelledby="aufnahmenTitle"
+      >
+        <div class="section-shell">
+          <header class="section-intro reveal">
+            <p class="eyebrow">Noch einmal mittendrin</p>
+            <h2 id="aufnahmenTitle">
+              Worte, Stimmen<br />und <em>bewegte Momente</em>
+            </h2>
+            <p>
+              Manche Erinnerungen möchte man nicht nur sehen, sondern noch
+              einmal hören und erleben. Hier findet ihr die Aufnahmen unserer
+              Trauung, der Reden und der Feier.
+            </p>
+          </header>
+
+          <div class="film-card reveal">
+            <div class="film-visual">
+              <div class="film-frame film-frame-one"></div>
+              <div class="film-frame film-frame-two"></div>
+              <a
+                class="play-mark"
+                href="https://gopro.com/v/1a21c6d2-c60d-4808-b6e8-6b90ee7615ea"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hochzeitsaufnahmen in einem neuen Tab ansehen"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m9 5 10 7-10 7V5Z" />
+                </svg>
+              </a>
+            </div>
+            <div class="film-copy">
+              <p class="card-number">03 <span></span> Film ab</p>
+              <h3>Unser Tag in bewegten Bildern</h3>
+              <p>
+                Vom Ja-Wort über persönliche Reden bis zu den Momenten auf der
+                Tanzfläche: Die Videos nehmen euch noch einmal mit durch unseren
+                Hochzeitstag – mit all den Stimmen, Emotionen und
+                Überraschungen, die ihn so besonders gemacht haben.
+              </p>
+              <a
+                class="cta-link"
+                href="https://gopro.com/v/1a21c6d2-c60d-4808-b6e8-6b90ee7615ea"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hochzeitsaufnahmen ansehen
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <small class="new-tab-note dark"
+                >Öffnet sich in einem neuen Tab</small
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mailbox" id="mailbox" aria-labelledby="mailboxTitle">
+        <div class="mailbox-glow" aria-hidden="true"></div>
+        <div class="section-shell mailbox-grid">
+          <div class="mailbox-copy reveal">
+            <p class="eyebrow light">04 <span></span> Eure Worte an uns</p>
+            <h2 id="mailboxTitle">Unsere<br /><em>Hochzeits-Mailbox</em></h2>
+            <p>
+              Eure Stimmen, Glückwünsche und Geschichten haben uns berührt, zum
+              Lachen gebracht und manchmal auch ein kleines Tränchen gekostet.
+              Diese ganz persönliche Nachrichtensammlung möchten wir mit euch
+              teilen.
+            </p>
+          </div>
+
+          <div class="audio-card reveal reveal-delay">
+            <div class="audio-art" aria-hidden="true">
+              <svg viewBox="0 0 100 100">
+                <path
+                  d="M28 50c0-18 9-30 22-30s22 12 22 30-9 30-22 30-22-12-22-30Z"
+                />
+                <path
+                  d="M50 10v14M50 76v14M18 50h12M70 50h12M27 27l9 9M64 64l9 9M73 27l-9 9M36 64l-9 9"
+                />
+              </svg>
+            </div>
+            <p class="audio-label">Eine Nachricht von euch an uns</p>
+            <h3>Stimmen, die bleiben</h3>
+            <audio controls preload="metadata">
+              <source
+                src="assets/audio/WhatsApp Audio 2026-07-19 at 23.06.22.mp3"
+                type="audio/mpeg"
+              />
+              Euer Browser unterstützt die Audiowiedergabe leider nicht.
+            </audio>
+            <p class="audio-hint">
+              Lehnt euch zurück, drückt auf Play und hört mit uns noch einmal
+              hinein.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closingTitle">
+        <div class="closing-background" aria-hidden="true"></div>
+        <div class="closing-overlay"></div>
+        <div class="closing-copy reveal">
+          <p class="eyebrow light">Das Beste kommt zum Schluss</p>
+          <h2 id="closingTitle">Was bleibt,<br />ist <em>Liebe.</em></h2>
+          <p>
+            Wir werden diesen Tag für immer im Herzen tragen – und euch als den
+            schönsten Teil davon.
           </p>
+          <p class="closing-signature">Danke von Herzen</p>
+          <strong>Joana & Jan</strong>
+          <span class="closing-date">16. Mai 2026</span>
         </div>
+      </section>
+    </main>
 
-        <div class="contact-group">
-          <h4 class="contact-subheading">Unsere Trauzeugen</h4>
-          <p class="contact-name">Jennifer Hüttemann</p>
-          <p class="contact-name">Erik Eichhorst</p>
-          <p class="contact-name">Benedikt Eisenbach</p>
-        </div>
-      </div>
+    <footer>
+      <p>Mit Liebe und vielen schönen Erinnerungen gemacht.</p>
+      <span aria-hidden="true">J <i>&</i> J</span>
+      <small>© <span id="currentYear">2026</span> Joana & Jan</small>
+    </footer>
 
-      <div class="easter-egg-hint">
-        <p>
-          🔍 Psst... Irgendwo auf dieser Seite versteckt sich ein kleines
-          Geheimnis... Tipp: &&&
-        </p>
-      </div>
-    </div>
-  </section>
+    <button
+      class="scroll-top"
+      id="scrollTop"
+      type="button"
+      aria-label="Zurück nach oben"
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="m6 15 6-6 6 6" />
+      </svg>
+    </button>
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollToTop" class="scroll-to-top" aria-label="Zurück nach oben">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M18 15l-6-6-6 6" />
-    </svg>
-  </button>
-
-  <script src="script.js" defer></script>
-</body>
-
+    <script src="script.js?v=20260720-2" defer></script>
+  </body>
 </html>
